@@ -23,12 +23,6 @@ html, body {
   height: 100%;
 }
 
-#wrapper {
-  width: 100%;
-  position: relative;
-  min-height: 100%;
-}
-
 .dark-mode body {
   background-color: #333333;
   color: #ebf4f1;
