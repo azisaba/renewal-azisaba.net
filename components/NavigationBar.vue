@@ -26,21 +26,31 @@ const resetAll = () => {
   });
 }
 
-const menuItem1 = ref([
-  {name: "子メニュー１", showChildren: false, to: "/abc",},
-  {name: "子メニュー２", showChildren: false, to: "/def",},
-  {name: "子メニュー３", showChildren: false, to: "/ghi",},
-  {name: "やばいくらいながいこどものめにゅー", showChildren: false, to: "/ghi",},
-  {name: "やばいくらいながいこどものめにゅーをさらにのばしてみる", showChildren: false, to: "/ghi",},
+const rules = ref([
+  {name: "全体サーバールール", showChildren: false, to: "/rules/all-server",},
+  {name: "各サーバールール", showChildren: false, to: "/rules/servers",},
+  {name: "利用規約", showChildren: false, to: "/rules/terms",},
+  {name: "その他のルールなど", showChildren: false, to: "/rules/others",},
+])
+
+const connect = ref([
+  {name: "接続方法", showChildren: false, to: "/connect",},
+  {name: "接続アドレス", showChildren: false, to: "/connect/addresses",},
+])
+
+const donation = ref([
+  {name: "寄付ページ", showChildren: false, to: "https://azisaba.buycraft.net/",},
+  {name: "寄付に関する注意事項", showChildren: false, to: "/donation/note",},
+  {name: "特定商取引法に基づく表示", showChildren: false, to: "/donation/commercial-transactions",},
 ])
 
 const showMenu = ref([
   {name: "ホーム", show_menu: false, to: "/"},
   {name: "お知らせ", show_menu: false, to: "/news"},
-  {name: "接続する", menu: menuItem1, show_menu: false, to: "/join"},
-  {name: "ルール", menu: menuItem1, show_menu: false, to: "/rules"},
+  {name: "接続する", menu: connect, show_menu: false, to: "/connect"},
+  {name: "ルール", menu: rules, show_menu: false, to: "/rules"},
   {name: "サーバー紹介", show_menu: false, to: "/servers"},
-  {name: "寄付", menu: menuItem1, show_menu: false, to: "/donation"},
+  {name: "寄付", menu: donation, show_menu: false, to: "/donation"},
 ])
 
 const menu_mouse_over =async (item, event)=>{
