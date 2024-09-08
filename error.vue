@@ -1,0 +1,21 @@
+<template>
+  <NuxtLayout>
+    <div class="content">
+      <PageNotFound :message=error?.message />
+    </div>
+  </NuxtLayout>
+</template>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  padding-top: 5vh;
+}
+</style>
+
+<script setup lang="ts">
+const error = useError();
+</script>
