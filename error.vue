@@ -12,7 +12,7 @@
   padding: 0;
 }
 .content {
-  padding-top: 5vh;
+  padding-top: 6vh;
 }
 </style>
 
