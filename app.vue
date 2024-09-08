@@ -22,6 +22,9 @@ html, body {
   color: #000000;
   height: 100%;
 }
+.content {
+  padding-top: 6vh;
+}
 
 .dark-mode body {
   background-color: #333333;

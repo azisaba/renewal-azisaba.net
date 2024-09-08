@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import {ref, nextTick} from 'vue'
+import {ref} from 'vue'
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
@@ -83,6 +83,9 @@ const menu_mouse_over =async (item, event)=>{
 
 <style scoped>
 .navbar {
+  left: 0;
+  right: 0;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,6 +122,8 @@ const menu_mouse_over =async (item, event)=>{
 }
 
 .dropdown-menu {
+  text-align: center;
+
   position: absolute;
   top: 100%;
   left: 0;
