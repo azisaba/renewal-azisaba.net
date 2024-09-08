@@ -1,6 +1,6 @@
 <template>
   <div class="all-page">
-    <nav>ここにナビゲーションバーを入れる</nav>
+    <NavigationBar />
     <slot class="content" />
     <Footer />
   </div>

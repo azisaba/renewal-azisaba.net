@@ -1,0 +1,150 @@
+<template>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <NuxtLink to="/">アジ鯖</NuxtLink>
+    </div>
+
+    <ul class="navbar-links" @mouseleave="resetAll()">
+      <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
+        <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
+        <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+          <li v-for="item in level1Menu.menu" :key="item.name">
+            <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script setup>
+import {ref, nextTick} from 'vue'
+
+const resetAll = () => {
+  showMenu.value.forEach(item => {
+    item.show_menu = false;
+  });
+}
+
+const menuItem1 = ref([
+  {name: "子メニュー１", showChildren: false, to: "/abc",},
+  {name: "子メニュー２", showChildren: false, to: "/def",},
+  {name: "子メニュー３", showChildren: false, to: "/ghi",},
+  {name: "やばいくらいながいこどものめにゅー", showChildren: false, to: "/ghi",},
+  {name: "やばいくらいながいこどものめにゅーをさらにのばしてみる", showChildren: false, to: "/ghi",},
+])
+
+const showMenu = ref([
+  {name: "ホーム", show_menu: false, to: "/"},
+  {name: "お知らせ", show_menu: false, to: "/news"},
+  {name: "接続する", menu: menuItem1, show_menu: false, to: "/join"},
+  {name: "ルール", menu: menuItem1, show_menu: false, to: "/rules"},
+  {name: "サーバー紹介", show_menu: false, to: "/servers"},
+  {name: "寄付", menu: menuItem1, show_menu: false, to: "/donation"},
+])
+
+const menu_mouse_over =async (item, event)=>{
+  resetAll()
+  item.show_menu = true
+
+  /*
+  await nextTick()
+  const dropdown = event.target.nextElementSibling;
+
+  if (dropdown && false) {
+    const dropdownRect = dropdown.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    console.log(dropdownRect, viewportWidth, dropdownRect.right > viewportWidth)
+
+    // 画面外にはみ出さないように調整
+    if (dropdownRect.right > viewportWidth) {
+      dropdown.style.left = 'auto';
+      dropdown.style.right = '0';
+    } else {
+      dropdown.style.left = '0';
+      dropdown.style.right = 'auto';
+    }
+  }
+
+   */
+}
+
+</script>
+
+<style scoped>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links li a:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  list-style: none;
+  padding: 0.5rem 1rem;
+
+  box-sizing: border-box;
+
+  white-space: nowrap; /* 自動で改行せずに、要素幅に合わせて広がる */
+  display: none;
+  z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
+}
+
+
+.dropdown-menu li {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.nav-parent:hover .dropdown-menu {
+  display: block;
+  right: 0;
+  left: auto;
+
+  width: auto;
+  min-width: 70px;
+}
+
+.dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  text-decoration: underline;
+}
+
+</style>
