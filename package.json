@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "^2.13.2",
+    "@nuxt/content": "^3.0.0",
     "@nuxt/image": "^1.8.0",
     "bootstrap-icons": "^1.11.3",
     "nuxt": "^3.13.0",
