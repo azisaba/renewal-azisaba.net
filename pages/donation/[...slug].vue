@@ -2,7 +2,7 @@
   <main class="donation-content">
     <ContentDoc >
       <template #not-found>
-        <PageNotFound message="page is not found."/>
+        <PageNotFound message="This page is not found."/>
       </template>
       <template #default="{ doc }">
         <article>
