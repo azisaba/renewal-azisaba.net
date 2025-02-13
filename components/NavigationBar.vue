@@ -4,21 +4,25 @@
       <NuxtLink to="/">アジ鯖</NuxtLink>
     </div>
 
-    <ul class="navbar-links" @mouseleave="resetAll()">
-      <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
-        <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
-        <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
-          <li v-for="item in level1Menu.menu" :key="item.name">
-            <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="navbar-right">
+      <ul class="navbar-links" @mouseleave="resetAll()">
+        <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
+          <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
+          <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+            <li v-for="item in level1Menu.menu" :key="item.name">
+              <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <ToggleColorMode class="toggle-color-mode" />
+    </div>
   </nav>
 </template>
 
 <script setup>
 import {ref} from 'vue'
+import ToggleColorMode from "~/components/ToggleColorMode.vue";
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
@@ -27,9 +31,11 @@ const resetAll = () => {
 }
 
 const rules = ref([
+  {name: "利用規約", showChildren: false, to: "/rules/terms",},
+  {name: "Minecraftサーバ個別規定", showChildren: false, to: "/rules/minecraft-server-policy",},
   {name: "全体サーバールール", showChildren: false, to: "/rules/all-server",},
   {name: "各サーバールール", showChildren: false, to: "/rules/servers",},
-  {name: "利用規約", showChildren: false, to: "/rules/terms",},
+  {name: "チャットガイドライン", showChildren: false, to: "/rules/chat-guideline",},
   {name: "その他のルールなど", showChildren: false, to: "/rules/others",},
 ])
 
@@ -138,6 +144,12 @@ const menu_mouse_over =async (item, event)=>{
   z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
 }
 
+.navbar-right {
+  display: flex;
+}
+.toggle-color-mode {
+  margin-left: 10px;
+}
 
 .dropdown-menu li {
   margin: 0;

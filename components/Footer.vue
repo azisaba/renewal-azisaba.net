@@ -1,23 +1,6 @@
 <template>
   <footer>
     <FooterTopBar />
-    <div class="links">
-      <a href="https://www.azisaba.net" target="_blank">Official HP</a> <br>
-      <a href="https://discord.com/invite/azisaba" target="_blank">Official Discord</a> <br>
-      <a href="https://azisaba.buycraft.net/" target="_blank">Donation Site</a> <br>
-    </div>
-
-
-    <div>
-      <h1>Color mode: {{ $colorMode.value }}</h1>
-      <select v-model="$colorMode.preference">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-      </select>
-    </div>
-
     <div class="footer-bottom">
       <FooterCopyright/>
       <FooterAnimation />
