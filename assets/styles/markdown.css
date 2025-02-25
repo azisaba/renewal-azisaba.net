@@ -94,6 +94,11 @@
     padding-right: 20vh;
 }
 
+.markdown-element h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 @media (1100px > width) {
     .markdown-element{
         padding-top: 5vh;
