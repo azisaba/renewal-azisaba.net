@@ -148,7 +148,7 @@ const menu_mouse_over =async (item, event)=>{
   display: flex;
 }
 .toggle-color-mode {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .dropdown-menu li {

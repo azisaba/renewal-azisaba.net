@@ -1,8 +1,8 @@
 <template>
   <div style="display: flex; align-items: center;">
     <button @click="toggleColorMode" style="border: none; background: none; cursor: pointer;">
-      <span v-if="colorMode.value === 'dark'" style="font-size: 24px;">🌙</span>
-      <span v-else style="font-size: 24px;">☀️</span>
+      <span v-if="colorMode.value === 'dark'" style="font-size: 24px;"><i class="bi bi-moon"></i></span>
+      <span v-else style="font-size: 24px;"><i class="bi bi-sun-fill"></i></span>
     </button>
   </div>
 </template>
@@ -26,3 +26,10 @@ const toggleColorMode = () => {
   console.log("pr", colorMode.preference);
 };
 </script>
+
+<style scoped>
+i{
+  color: #ebf4f1;
+}
+
+</style>

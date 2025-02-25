@@ -14,6 +14,12 @@
 .content {
   padding-top: 11vh;
 }
+
+.dark-mode body {
+  background-color: #3e3e3e;
+  color: #ebf4f1;
+}
+
 </style>
 
 <script setup lang="ts">
