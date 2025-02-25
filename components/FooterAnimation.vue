@@ -55,4 +55,10 @@ onMounted(() => {
 .animation {
   white-space: pre;
 }
+
+@media (710px > width) {
+  .animation {
+    display: none; /* 非表示 */
+  }
+}
 </style>

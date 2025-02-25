@@ -7,5 +7,12 @@
 <style scoped>
 .copyright {
   padding-left: 10px;
+  width: 280px;
+}
+
+@media (710px >= width) {
+  .copyright {
+    width: auto;
+  }
 }
 </style>

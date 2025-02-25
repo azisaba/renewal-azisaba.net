@@ -33,12 +33,18 @@
 
   h1 {
     font-size: 3rem;
+    padding-left: 17px;
   }
   p {
     font-size: 1.5rem;
-
   }
 
+  @media (450px >= width) {
+    h1 {
+      padding-left: 15px;
+      font-size: 2.5rem;
+    }
+  }
 }
 
 

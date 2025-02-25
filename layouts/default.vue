@@ -12,6 +12,7 @@
   display: flex; /* 子クラスを横並びにする */
   flex-direction: column; /* 子クラスの横並びの方向を縦にする */
 }
+
 .content {
   flex: 1; /* flexに1つだけ数値を指定するとその要素は伸びる */
 }

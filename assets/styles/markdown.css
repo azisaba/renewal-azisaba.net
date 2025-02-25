@@ -88,6 +88,32 @@
     }
 }
 
-.sepia-mode .markdown-content {
-    color: #433422;
+.markdown-element{
+    padding-top: 5vh;
+    padding-left: 20vh;
+    padding-right: 20vh;
+}
+
+@media (1100px > width) {
+    .markdown-element{
+        padding-top: 5vh;
+        padding-left: 10vh;
+        padding-right: 10vh;
+    }
+}
+
+@media (850px > width) {
+    .markdown-element{
+        padding-top: 5vh;
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+}
+
+@media (750px > width) {
+    .markdown-element{
+        padding-top: 5vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+    }
 }

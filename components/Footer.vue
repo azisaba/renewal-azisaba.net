@@ -2,7 +2,7 @@
   <footer>
     <FooterTopBar />
     <div class="footer-bottom">
-      <FooterCopyright/>
+      <FooterCopyright />
       <FooterAnimation />
       <FooterSocial />
     </div>
@@ -25,12 +25,12 @@ console.log(colorMode.preference)
 }
 
 div {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 footer {
-  padding-top: 0vh;
+  padding-top: 0;
   background-color: #fafafa;
   /*margin-top: auto;*/
   /*color: aliceblue;*/
@@ -43,7 +43,6 @@ footer {
 
 .footer-bottom {
   border-top: solid 3px #eae9e9;
-
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -58,6 +57,17 @@ footer {
 
 .dark-mode footer{
   background-color: #2c2c2c;
+}
+
+
+
+@media (475px > width) {
+  .footer-bottom {
+    width: auto;
+    display: block; /* 非表示 */
+    text-align: center;
+    padding-top: 1vh;
+  }
 }
 
 </style>
