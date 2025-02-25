@@ -50,6 +50,12 @@ const donation = ref([
   {name: "特定商取引法に基づく表示", showChildren: false, to: "/donation/commercial-transactions",},
 ])
 
+const other = ref([
+  {name: "サポート", showChildren: false, to: "/support",},
+  {name: "投票サイト", showChildren: false, to: "/links#投票サイト",},
+  {name: "リンク", showChildren: false, to: "/links",},
+])
+
 const showMenu = ref([
   {name: "ホーム", show_menu: false, to: "/"},
   {name: "お知らせ", show_menu: false, to: "/news"},
@@ -57,6 +63,7 @@ const showMenu = ref([
   {name: "ルール", menu: rules, show_menu: false, to: "/rules"},
   {name: "サーバー紹介", show_menu: false, to: "/servers"},
   {name: "寄付", menu: donation, show_menu: false, to: "/donation"},
+  {name: "その他", menu: other, show_menu: false, to: "/other"},
 ])
 
 const menu_mouse_over =async (item, event)=>{
