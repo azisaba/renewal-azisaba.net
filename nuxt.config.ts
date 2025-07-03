@@ -2,10 +2,17 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/image', '@nuxtjs/mdc'],
+  modules: [
+    '@nuxtjs/color-mode',
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxtjs/mdc',
+    'vuetify-nuxt-module',
+  ],
   css: [
     "bootstrap-icons/font/bootstrap-icons.css",
     '@/assets/styles/markdown.css',
+    '@/assets/styles/global.css',
   ],
   app: {
     head: {
@@ -27,8 +34,17 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/terms': {
-      redirect: '/rules/terms',
+    '/terms': {redirect: '/rules/terms'},
+    '/minecraft-all-srv-rule': {redirect: '/rules/global-server-rules'},
+  },
+  vuetify: {
+    vuetifyOptions: {
+      components: [
+          'VCard', 'VCardItem', 'VCardActions', 'VCardText', 'VCardTitle', 'VCardSubtitle',
+          'VExpansionPanels', 'VExpansionPanel', 'VExpansionPanelTitle', 'VExpansionPanelText',
+      ],
+      labComponents: true,
+      directives: true,
     },
   },
   ssr: true,

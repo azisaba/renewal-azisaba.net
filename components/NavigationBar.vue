@@ -149,7 +149,7 @@ const menu_mouse_over =async (item, event)=>{
 
   white-space: nowrap; /* 自動で改行せずに、要素幅に合わせて広がる */
   display: none;
-  z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
+  z-index: 2147483647; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
 }
 
 .navbar-right {
@@ -182,4 +182,8 @@ const menu_mouse_over =async (item, event)=>{
   text-decoration: underline;
 }
 
+.nav-item {
+  /* TODO: ugly hack */
+  top: 7px;
+}
 </style>
