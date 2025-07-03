@@ -18,7 +18,7 @@ onMounted(() => { currentMode.value = colorMode.value });
 
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light'
-  currentMode.value = colorMode.value;
+  currentMode.value = colorMode.preference;
 };
 </script>
 
