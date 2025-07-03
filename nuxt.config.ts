@@ -36,6 +36,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/terms': {redirect: '/rules/terms'},
     '/minecraft-all-srv-rule': {redirect: '/rules/global-server-rules'},
+    '/discord-rule': {redirect: '/rules/discord'},
   },
   vuetify: {
     vuetifyOptions: {
