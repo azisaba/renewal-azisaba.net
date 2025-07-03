@@ -35,8 +35,17 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/terms': {redirect: '/rules/terms'},
+    '/minecraft-server-policy': {redirect: '/rules/minecraft-server-policy'},
     '/minecraft-all-srv-rule': {redirect: '/rules/global-server-rules'},
+    '/minecraft-srvs-rule': {redirect: '/rules/server-rules'},
     '/discord-rule': {redirect: '/rules/discord'},
+    '/operating-terms-and-conditions': {redirect: '/rules/operating-terms-and-conditions'},
+    '/fanfic-guidelines': {redirect: '/rules/derivative-works-guidelines'},
+    '/chat-guideline': {redirect: '/rules/chat-guidelines'},
+    '/help/rule-faq': {redirect: '/rules/faq'},
+    '/notes-on-donations': {redirect: '/donation/note'},
+    '/usage-of-donations': {redirect: '/donation/usage'},
+    '/act-of-specified-commercial-transactions': {redirect: '/donation/commercial-transactions'},
   },
   vuetify: {
     vuetifyOptions: {

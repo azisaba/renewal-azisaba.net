@@ -42,14 +42,15 @@ const rules = ref([
 ])
 
 const connect = ref([
-  {name: "接続方法", showChildren: false, to: "/connect",},
-  {name: "接続アドレス", showChildren: false, to: "/connect/addresses",},
+  {name: "接続方法", showChildren: false, to: "/connect"},
+  {name: "接続アドレス", showChildren: false, to: "/connect/addresses"},
 ])
 
 const donation = ref([
-  {name: "寄付ページ", showChildren: false, to: "https://azisaba.buycraft.net/",},
-  {name: "寄付に関する注意事項", showChildren: false, to: "/donation/note",},
-  {name: "特定商取引法に基づく表示", showChildren: false, to: "/donation/commercial-transactions",},
+  {name: "寄付ページ", showChildren: false, to: "https://store.azisaba.net/"},
+  {name: "寄付に関する注意事項", showChildren: false, to: "/donation/note"},
+  {name: "寄付金利用方法について", showChildren: false, to: "/donation/usage"},
+  {name: "特定商取引法に基づく表示", showChildren: false, to: "/donation/commercial-transactions"},
 ])
 
 const other = ref([
