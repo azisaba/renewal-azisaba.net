@@ -2,16 +2,33 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/image', '@nuxtjs/mdc'],
   css: [
     "bootstrap-icons/font/bootstrap-icons.css",
     '@/assets/styles/markdown.css',
   ],
   app: {
     head: {
-      title: 'Nuxt 3 basic',
-      meta: [{ name: 'description', content: 'Nuxt 3 for beginners' }],
+      title: 'アジ鯖公式サイト',
+      meta: [{ name: 'description', content: 'アジ鯖公式サイト' }],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
+    },
+  },
+  vite:{
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
+  },
+  mdc: {
+    remarkPlugins: {
+      'remark-breaks': {}
+    }
+  },
+  routeRules: {
+    '/terms': {
+      redirect: '/rules/terms',
     },
   },
 })

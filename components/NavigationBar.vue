@@ -36,6 +36,7 @@ const rules = ref([
   {name: "全体サーバールール", showChildren: false, to: "/rules/all-server",},
   {name: "各サーバールール", showChildren: false, to: "/rules/servers",},
   {name: "チャットガイドライン", showChildren: false, to: "/rules/chat-guideline",},
+  {name: "運営登用規約", showChildren: false, to: "/rules/operating-terms-and-conditions",},
   {name: "その他のルールなど", showChildren: false, to: "/rules/others",},
 ])
 
