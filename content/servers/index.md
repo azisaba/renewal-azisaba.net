@@ -2,8 +2,8 @@
 title: サーバー紹介
 ---
 
-## Life
+※それぞれリンクになっています
 
-## LGW2
-
-## Sclat
+- [Life](/servers/life)
+- [Leon Gun War 2](/servers/leon-gun-war-2)
+- 

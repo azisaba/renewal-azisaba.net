@@ -31,13 +31,13 @@ const resetAll = () => {
 }
 
 const rules = ref([
-  {name: "利用規約", showChildren: false, to: "/rules/terms",},
-  {name: "Minecraftサーバ個別規定", showChildren: false, to: "/rules/minecraft-server-policy",},
-  {name: "全体サーバールール", showChildren: false, to: "/rules/all-server",},
-  {name: "各サーバールール", showChildren: false, to: "/rules/servers",},
-  {name: "チャットガイドライン", showChildren: false, to: "/rules/chat-guideline",},
-  {name: "運営登用規約", showChildren: false, to: "/rules/operating-terms-and-conditions",},
-  {name: "その他のルールなど", showChildren: false, to: "/rules/others",},
+  {name: "利用規約", showChildren: false, to: "/rules/terms"},
+  {name: "Minecraftサーバ個別規定", showChildren: false, to: "/rules/minecraft-server-policy"},
+  {name: "全体サーバールール", showChildren: false, to: "/rules/global-server-rules"},
+  {name: "各サーバールール", showChildren: false, to: "/rules/server-rules"},
+  {name: "チャットガイドライン", showChildren: false, to: "/rules/chat-guidelines"},
+  {name: "運営登用規約", showChildren: false, to: "/rules/operating-terms-and-conditions"},
+  {name: "二次創作ガイドライン", showChildren: false, to: "/rules/derivative-works-guidelines"},
 ])
 
 const connect = ref([
