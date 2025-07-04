@@ -15,19 +15,21 @@
 
 <style scoped>
 
-/*
+
 .content {
-  height: 150vh;
+  height: 100vh;
 }
-*/
+
 
 .main-content {
   position: absolute;
   width: 100%;
-  top: 38%;
+  top: 45%;
 }
 
 .main-catch-copy {
+  position: fixed;
+  width: 100%;
   text-align: center;
   align-items: center;
 
@@ -40,9 +42,8 @@
   }
 
 }
-
-
 </style>
 
 <script setup>
+useHead({ title: 'ホーム' })
 </script>

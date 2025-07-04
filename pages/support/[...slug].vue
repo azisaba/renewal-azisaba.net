@@ -1,5 +1,5 @@
 <template>
-  <main class="donation-content">
+  <main class="support-content">
     <ContentDoc >
       <template #not-found>
         <PageNotFound message="page is not found."/>
@@ -15,7 +15,7 @@
 </template>
 
 <style scoped>
-.donation-content {
+.support-content {
   padding-top: 5vh;
   padding-left: 20vh;
   padding-right: 20vh;

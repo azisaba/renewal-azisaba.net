@@ -18,4 +18,5 @@
 
 <script setup lang="ts">
 const error = useError();
+useHead({ title: '404 Not Found - アジ鯖公式ホームページ' })
 </script>

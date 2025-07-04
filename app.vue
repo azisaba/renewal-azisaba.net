@@ -37,3 +37,14 @@ html, body {
 }
 
 </style>
+
+<script setup>
+const config = useRuntimeConfig()
+useHead({
+  titleTemplate: (productCategory) => {
+    return productCategory
+        ? `${productCategory} - ${config.public.title}`
+        : config.public.title
+  }
+})
+</script>

@@ -3,17 +3,24 @@
     <div class="navbar-logo">
       <NuxtLink to="/">アジ鯖</NuxtLink>
     </div>
-
-    <ul class="navbar-links" @mouseleave="resetAll()">
-      <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
-        <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
-        <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
-          <li v-for="item in level1Menu.menu" :key="item.name">
-            <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="navbar-left-block">
+      <ul class="navbar-links" @mouseleave="resetAll()">
+        <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
+          <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
+          <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+            <li v-for="item in level1Menu.menu" :key="item.name">
+              <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <select v-model="$colorMode.preference">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+      </select>
+    </div>
   </nav>
 </template>
 
@@ -160,6 +167,11 @@ const menu_mouse_over =async (item, event)=>{
 
 .dropdown-menu li a:hover {
   text-decoration: underline;
+}
+
+.navbar-left-block {
+  display: flex;
+  gap: 1.5rem;
 }
 
 </style>
