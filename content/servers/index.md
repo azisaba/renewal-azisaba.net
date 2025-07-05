@@ -65,6 +65,10 @@ MMORPGサーバー
 
 ルールは[こちら](/servers/a-fall-new-world#ルール)から
 
+### [ばにらいふ２！](/servers/vanilife2)
+
+ルールは[こちら](/servers/vanilife2#ルール)から
+
 ## 閉鎖されたサーバー
 
 - [Leon Gun War](/servers/leon-gun-war) (~2024/09/30) – 全面戦争型、銃撃戦FPSサーバー。
