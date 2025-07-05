@@ -7,7 +7,7 @@
         <p>azisaba.net</p>
         <p>
           <NuxtLink class="link-arrow" to="/connect">
-            接続方法 <span style="transform: scale(-1, 1)">&#x2B05;🏃</span>
+            接続方法 <span style="scale: -1 1">&#x2B05;🏃</span>
           </NuxtLink>
         </p>
       </div>
@@ -61,7 +61,7 @@ a.link-arrow {
 }
 
 a.link-arrow span {
-  transform: scale(-1, 1);
+  scale: -1 1;
   color: white;
   text-shadow:
       -1px -1px 0 #000,  /* 左上 */
@@ -73,7 +73,7 @@ a.link-arrow span {
 }
 
 a.link-arrow:hover span {
-  transform: scale(-1, 1) translateX(-25%);
+  transform: translateX(-25%);
 }
 </style>
 
