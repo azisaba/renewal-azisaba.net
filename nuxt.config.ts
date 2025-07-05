@@ -47,7 +47,9 @@ export default defineNuxtConfig({
     '/notes-on-donations': {redirect: '/donation/note'},
     '/usage-of-donations': {redirect: '/donation/usage'},
     '/act-of-specified-commercial-transactions': {redirect: '/donation/commercial-transactions'},
+    '/serverlist': {redirect: '/server'},
     '/server-intro/**': {redirect: '/servers/**'},
+    '/join': {redirect: '/connect'},
   },
   vuetify: {
     vuetifyOptions: {
