@@ -50,7 +50,7 @@ const donation = ref([
   {name: "寄付ページ", showChildren: false, to: "https://store.azisaba.net/"},
   {name: "寄付に関する注意事項", showChildren: false, to: "/donation/note"},
   {name: "寄付金利用方法について", showChildren: false, to: "/donation/usage"},
-  {name: "特定商取引法に基づく表示", showChildren: false, to: "/donation/commercial-transactions"},
+  {name: "特定商取引法に基づく表記", showChildren: false, to: "/donation/commercial-transactions"},
 ])
 
 const other = ref([
@@ -108,6 +108,7 @@ const menu_mouse_over =async (item, event)=>{
   padding: 1rem 2rem;
   background-color: #333;
   color: white;
+  z-index: 1000;
 }
 
 .navbar-logo a {
@@ -151,7 +152,7 @@ const menu_mouse_over =async (item, event)=>{
 
   white-space: nowrap; /* 自動で改行せずに、要素幅に合わせて広がる */
   display: none;
-  z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
+  z-index: 1001; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
 }
 
 .navbar-right {

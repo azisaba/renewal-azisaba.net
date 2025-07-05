@@ -46,12 +46,14 @@ export default defineNuxtConfig({
     '/notes-on-donations': {redirect: '/donation/note'},
     '/usage-of-donations': {redirect: '/donation/usage'},
     '/act-of-specified-commercial-transactions': {redirect: '/donation/commercial-transactions'},
+    '/server-intro/**': {redirect: '/servers/**'},
   },
   vuetify: {
     vuetifyOptions: {
       components: [
           'VCard', 'VCardItem', 'VCardActions', 'VCardText', 'VCardTitle', 'VCardSubtitle',
           'VExpansionPanels', 'VExpansionPanel', 'VExpansionPanelTitle', 'VExpansionPanelText',
+          'VCarousel', 'VCarouselItem',
       ],
       labComponents: true,
       directives: true,

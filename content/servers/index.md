@@ -57,7 +57,7 @@ MMORPGサーバー
 
 個別ルールはありません。全体サーバールールに則ります。
 
-### [A Fall New World](/servers/a-fall-new-world)
+### [A Fall New World (期間限定)](/servers/a-fall-new-world)
 
 参加可能バージョン: 1.12.2 - 1.20.1
 
