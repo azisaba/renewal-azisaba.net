@@ -73,11 +73,5 @@ a.link-arrow:hover p {
 }
 </style>
 
-<style>
-html {
-  overflow-y: hidden;
-}
-</style>
-
 <script setup>
 </script>
