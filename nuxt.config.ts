@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'アジ鯖公式サイト',
-      meta: [{ name: 'description', content: 'アジ鯖公式サイト' }],
+      htmlAttrs: { lang: 'ja' },
+      meta: [{ name: 'description', content: 'アジ鯖、たのしい。｜Minecraftマルチプレイサーバー アジ鯖の公式ホームページです。' }],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
     },
   },

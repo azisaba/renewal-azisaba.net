@@ -2,7 +2,7 @@
   <div class="not-found-content">
     <div class="stack">
       <h1>404</h1>
-      <p class="error-message">{{ message }}</p>
+      <p class="error-message">{{ props.message }}</p>
     </div>
   </div>
 </template>
@@ -41,4 +41,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
+//const error = useError();
+useHead({ title: '404 Not Found - アジ鯖公式サイト' })
 </script>
