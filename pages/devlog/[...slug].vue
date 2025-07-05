@@ -22,7 +22,10 @@ const { data } = await useAsyncData(`devlog-${route.path}`, () => {
   return queryCollection('devlog').path(route.path).first()
 })
 if (data.value) {
-  useHead({title: `${data.value.title} - アジ鯖開発ブログ`})
+  useHead({
+    title: `${data.value.title} - アジ鯖開発ブログ`,
+    meta: [{ name: 'description', content: data.value.description }]
+  })
 }
 </script>
 

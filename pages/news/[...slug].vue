@@ -22,7 +22,10 @@ const { data } = await useAsyncData(`news-${route.path}`, () => {
   return queryCollection('news').path(route.path).first()
 })
 if (data.value) {
-  useHead({title: `${data.value.title} - アジ鯖ニュース`})
+  useHead({
+    title: `${data.value.title} - アジ鯖ニュース`,
+    meta: [{ name: 'description', content: data.value.description }]
+  })
 }
 </script>
 
