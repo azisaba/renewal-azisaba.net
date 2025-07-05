@@ -20,3 +20,9 @@ if (data.value) {
 
 <style scoped>
 </style>
+
+<style>
+html {
+  overflow-y: auto;
+}
+</style>
