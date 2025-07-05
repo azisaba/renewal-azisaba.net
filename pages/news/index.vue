@@ -26,7 +26,7 @@
           {{ article.title }}
         </NuxtLink>
       </v-card-title>
-      <v-card-text>{{ article.description }}</v-card-text>
+      <v-card-text style="overflow: hidden">{{ article.description }}</v-card-text>
       <v-card-actions style="display: flex; justify-content: space-between;">
         <v-btn
             text
