@@ -4,9 +4,9 @@
     padding: 1rem;
     text-decoration: none;
     color: #000000;
-    a {
-        color: #2c2c2c;
-    }
+    /*a {*/
+    /*    color: #2c2c2c;*/
+    /*}*/
 }
 
 /* 見出しのスタイル */
@@ -84,9 +84,9 @@
 
 .dark-mode .markdown-content{
     color: #ebf4f1;
-    a {
-        color: #d3d3d3;
-    }
+    /*a {*/
+    /*    color: #d3d3d3;*/
+    /*}*/
 }
 
 .markdown-element{
@@ -122,4 +122,8 @@
         padding-left: 2vh;
         padding-right: 2vh;
     }
+}
+
+.markdown-content a {
+    color: cornflowerblue;
 }
