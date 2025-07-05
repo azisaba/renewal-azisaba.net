@@ -26,24 +26,28 @@
           {{ article.title }}
         </NuxtLink>
       </v-card-title>
-      <v-card-subtitle v-if="article.date">{{ article.date }}</v-card-subtitle>
-      <v-card-text>{{ article.description }}</v-card-text>
-      <v-card-actions>
+      <v-card-text style="overflow: hidden">{{ article.description }}</v-card-text>
+      <v-card-actions style="display: flex; justify-content: space-between;">
         <v-btn
           text
           :to="article.path"
         >
           詳細を読む
         </v-btn>
+        <span style="font-size: 0.8em; color: gray; top: 2px; position: relative;">
+          {{ article.author && ` by ${article.author}` }}
+          {{ article.date && ` on ${article.date}` }}
+        </span>
       </v-card-actions>
     </v-card>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData('devlog', () =>
+const { data: rawData } = await useAsyncData('devlog', () =>
   queryCollection('devlog').all(),
 )
+const data = rawData.value?.toSorted((a, b) => b.path.localeCompare(a.path))
 </script>
 
 <style scoped>

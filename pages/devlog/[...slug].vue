@@ -9,7 +9,10 @@
           class="cover-image"
       ></v-img>
       <h1>{{ data.title }}</h1>
-      <span class="published-at" v-if="data.date">{{ data.date }}</span>
+      <span class="subtitle">
+        {{ data.author && ` by ${data.author}` }}
+        {{ data.date && ` on ${data.date}` }}
+      </span>
       <ContentRenderer :value="data" class="markdown-content"/>
     </article>
     <PageNotFound v-else message="page is not found."/>
@@ -30,7 +33,7 @@ if (data.value) {
 </script>
 
 <style scoped>
-.published-at {
+.subtitle {
   font-size: 1rem;
   color: #999;
 }

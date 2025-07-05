@@ -41,9 +41,10 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData('news', () =>
-  queryCollection('news').all(),
+const { data: rawData } = await useAsyncData('news', () =>
+    queryCollection('news').all(),
 )
+const data = rawData.value?.toSorted((a, b) => b.path.localeCompare(a.path))
 </script>
 
 <style scoped>
