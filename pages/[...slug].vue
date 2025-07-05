@@ -13,7 +13,9 @@ const route = useRoute()
 const { data } = await useAsyncData(`content-${route.path}`, () => {
   return queryCollection('content').path(route.path).first()
 })
-useHead({ title: `${data.value.title} - アジ鯖公式サイト` })
+if (data.value) {
+  useHead({title: `${data.value.title} - アジ鯖公式サイト`})
+}
 </script>
 
 <style scoped>

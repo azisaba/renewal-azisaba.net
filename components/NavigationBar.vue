@@ -66,7 +66,7 @@ const showMenu = ref([
   {name: "ルール", menu: rules, show_menu: false, to: "/rules"},
   {name: "サーバー紹介", show_menu: false, to: "/servers"},
   {name: "寄付", menu: donation, show_menu: false, to: "/donation"},
-  {name: "その他", menu: other, show_menu: false, to: "/other"},
+  {name: "その他", menu: other, show_menu: false, to: "#"},
 ])
 
 const menu_mouse_over =async (item, event)=>{
