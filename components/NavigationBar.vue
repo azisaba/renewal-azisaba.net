@@ -66,6 +66,7 @@ const showMenu = ref([
   {name: "ルール", menu: rules, show_menu: false, to: "/rules"},
   {name: "サーバー紹介", show_menu: false, to: "/servers"},
   {name: "寄付", menu: donation, show_menu: false, to: "/donation"},
+  // {name: "開発ブログ(仮)", show_menu: false, to: "/devlog"},
   {name: "その他", menu: other, show_menu: false, to: "#"},
 ])
 
@@ -101,7 +102,7 @@ const menu_mouse_over =async (item, event)=>{
 .navbar {
   left: 0;
   right: 0;
-  position: fixed;
+  /*position: fixed;*/
   display: flex;
   justify-content: space-between;
   align-items: center;
