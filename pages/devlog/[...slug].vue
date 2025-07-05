@@ -27,7 +27,7 @@ const { data } = await useAsyncData(`devlog-${route.path}`, () => {
 if (data.value) {
   const meta = [{ name: 'description', content: data.value.description }]
   meta.push({ property: 'og:title', content: data.value.title })
-  meta.push({ property: 'og:site_name', content: 'アジ鯖ニュース' })
+  meta.push({ property: 'og:site_name', content: 'アジ鯖開発ブログ' })
   meta.push({ property: 'og:description', content: data.value.description })
   meta.push({ property: 'og:type', content: 'website' })
   if (data.value.image) {
