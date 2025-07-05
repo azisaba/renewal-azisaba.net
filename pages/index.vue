@@ -5,9 +5,8 @@
       <div class="main-catch-copy">
         <h1>アジ鯖、たのしい。</h1>
         <p>azisaba.net</p>
+        <p><NuxtLink class="link-arrow" to="/connect">接続方法 <p>&#x2B05;🏃</p></NuxtLink></p>
       </div>
-
-
     </div>
   </div>
 
@@ -47,7 +46,31 @@
   }
 }
 
+a.link-arrow {
+  text-decoration: none;
+  color: midnightblue;
+  font-size: 2rem;
+}
 
+.dark-mode a.link-arrow {
+  color: deepskyblue;
+}
+
+a.link-arrow p {
+  transform: scale(-1, 1);
+  color: white;
+  text-shadow:
+      -1px -1px 0 #000,  /* 左上 */
+      1px -1px 0 #000,  /* 右上 */
+      -1px  1px 0 #000,  /* 左下 */
+      1px  1px 0 #000; /* 右下 */
+  display: inline-block;
+  transition: 0.1s ease-in;
+}
+
+a.link-arrow:hover p {
+  transform: scale(-1, 1) translateX(-25%);
+}
 </style>
 
 <script setup>
