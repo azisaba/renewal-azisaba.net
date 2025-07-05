@@ -32,6 +32,7 @@ if (data.value) {
   meta.push({ property: 'og:type', content: 'website' })
   if (data.value.image) {
     meta.push({ property: 'og:image', content: data.value.image })
+    meta.push({ property: 'twitter:card', content: 'summary_large_image' })
   }
   useHead({
     title: `${data.value.title} - アジ鯖開発ブログ`,
