@@ -126,7 +126,7 @@ a {
 
 
 /* Dark Mode */
-.dark-mode .markdown-content *:not(a) {
+.dark-mode .markdown-content body {
     color: #ebf4f1;
     background-color: #3e3e3e;
 }
