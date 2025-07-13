@@ -17,13 +17,6 @@
 </template>
 
 <style scoped>
-
-/*
-.content {
-  height: 150vh;
-}
-*/
-
 .main-content {
   position: absolute;
   width: 100%;

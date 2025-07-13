@@ -4,11 +4,15 @@
       <h1>{{ data.title }}</h1>
       <ContentRenderer :value="data" class="markdown-content"/>
     </article>
-    <PageNotFound v-else message="page is not found."/>
   </main>
+  <PageNotFound v-if="!data" message="page is not found."/>
 </template>
 
 <script setup>
+definePageMeta({
+  layout: 'markdown'
+})
+
 const route = useRoute()
 const { data } = await useAsyncData(`content-${route.path}`, () => {
   return queryCollection('content').path(route.path).first()
