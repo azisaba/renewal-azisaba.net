@@ -16,6 +16,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string(),
+        tags: z.array(z.string()).default([]),
         image: z.string().nullable(),
         image_cover: z.boolean().default(true),
         published: z.boolean(),
