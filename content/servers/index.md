@@ -18,6 +18,8 @@ lifeサーバーに参加した状態で以下のURLからフォームを記入�
 
 ### [Leon Gun War 2](/servers/leon-gun-war-2)
 
+戦場を駆け巡れ
+
 ルールは[こちら](/servers/leon-gun-war-2#ルール)から
 
 ### Sclat
