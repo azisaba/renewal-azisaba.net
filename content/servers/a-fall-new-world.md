@@ -3,7 +3,7 @@ title: A Fall New World
 ---
 
 この世界にあるのは、__**岩盤一つだけ**__。
-接続可能バージョン : v1.12.2 ~ v1.20.1
+接続可能バージョン : v1.13 ~ v1.21.11
 
 ![](https://i.azisaba.net/albums/afnw/Afnw-header.png)
 
