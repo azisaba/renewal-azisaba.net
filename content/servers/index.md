@@ -26,6 +26,22 @@ lifeサーバーに参加した状態で以下のURLからフォームを記入�
 
 個別ルールはありません。全体サーバールールに則ります。
 
+### [A Fall New World (期間限定)](/servers/a-fall-new-world)
+
+参加可能バージョン: 1.13 - 1.21.11
+
+この世界にあるのは、 岩盤一つだけ。
+
+ルールは[こちら](/servers/a-fall-new-world#ルール)から
+
+### [CreativePro](/servers/creativepro)
+
+参加可能バージョン: v1.9 ~ v1.21.11 (サーバーバージョン: 1.21.11)
+
+Plotなしのシンプルなクリエイティブサーバー。
+
+ルールは[こちら](/servers/creativepro#ルール)から
+
 ## 開発中サーバー
 
 ### [Conflict](/servers/conflict)
@@ -58,14 +74,6 @@ MMORPGサーバー
 ミニゲームサーバー
 
 個別ルールはありません。全体サーバールールに則ります。
-
-### [A Fall New World (期間限定)](/servers/a-fall-new-world)
-
-参加可能バージョン: 1.12.2 - 1.20.1
-
-この世界にあるのは、 岩盤一つだけ。
-
-ルールは[こちら](/servers/a-fall-new-world#ルール)から
 
 ### [ばにらいふ２！](/servers/vanilife2)
 
