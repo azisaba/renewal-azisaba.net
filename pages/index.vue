@@ -6,8 +6,6 @@
         <h1>アジ鯖、たのしい。</h1>
         <p>azisaba.net</p>
       </div>
-
-
     </div>
   </div>
 
@@ -50,5 +48,6 @@
 
 </style>
 
-<script setup>
+<script setup lang="ts">
+useHead({ title: '' })
 </script>

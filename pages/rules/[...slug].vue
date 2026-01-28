@@ -1,18 +1,20 @@
 <template>
   <main class="markdown-element">
-    <ContentDoc >
-      <template #not-found>
-        <PageNotFound message="page is not found."/>
-      </template>
-      <template #default="{ doc }">
-        <article>
-          <h1>{{ doc.title }}</h1>
-          <ContentRenderer :value="doc" class="markdown-content"/>
-        </article>
-      </template>
-    </ContentDoc>
+    <div v-if="data">
+      <h1>{{ data.title }}</h1>
+      <ContentRenderer  :value="data" class="markdown-content" />
+    </div>
+    <PageNotFound v-else message="page is not found."/>
   </main>
 </template>
 
-<style scoped>
-</style>
+<script setup lang="ts">
+  import { useRoute} from 'vue-router'
+  const route = useRoute()
+
+  const {data} = await useAsyncData(route.path, () => {
+    return queryCollection('rules').path(route.path).first()
+  })
+  console.log(data)
+  useHead({ title: data.value?.title})
+</script>

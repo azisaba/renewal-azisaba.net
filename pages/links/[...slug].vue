@@ -13,7 +13,7 @@ import { useRoute} from 'vue-router'
 const route = useRoute()
 
 const {data} = await useAsyncData(route.path, () => {
-  return queryCollection('donation').path(route.path).first()
+  return queryCollection('links').path(route.path).first()
 })
 
 useHead({ title: data.value?.title})

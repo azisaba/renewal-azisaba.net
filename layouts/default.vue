@@ -1,6 +1,6 @@
 <template>
   <div class="all-page">
-    <NavigationBar />
+    <Header />
     <slot class="content" />
     <Footer />
   </div>

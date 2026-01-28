@@ -30,6 +30,12 @@ html, body {
   background-color: #3e3e3e;
   color: #ebf4f1;
 }
-
-
 </style>
+
+<script setup lang="ts">
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | アジ鯖公式サイト` : 'アジ鯖公式サイト';
+  }
+})
+</script>

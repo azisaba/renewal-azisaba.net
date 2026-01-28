@@ -1,7 +1,7 @@
 <template>
   <main class="markdown-element">
     <div v-if="data">
-      <h1>{{ data.title }}</h1>
+      <h1>{{data.title}}</h1>
       <ContentRenderer  :value="data" class="markdown-content" />
     </div>
     <PageNotFound v-else message="page is not found."/>
@@ -13,8 +13,10 @@ import { useRoute} from 'vue-router'
 const route = useRoute()
 
 const {data} = await useAsyncData(route.path, () => {
-  return queryCollection('donation').path(route.path).first()
+  return queryCollection('news').where('stem', 'LIKE', route.params.slug).first()
 })
-
-useHead({ title: data.value?.title})
+const contents = data.value?.contents
+console.log(data)
+console.log(contents)
+//useHead({ title: data.value?.title})
 </script>

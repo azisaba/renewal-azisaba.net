@@ -10,7 +10,8 @@
 .main-image {
   min-height: 50vh;
 
-  background-image: url(https://i.azisaba.net/albums/2020-11-01_06.01.22.png);
+  /*background-image: url(https://i.azisaba.net/albums/2020-11-01_06.01.22.png);*/
+  background-image: url("../assets/toppage-image01.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

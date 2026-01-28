@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'Nuxt 3 basic',
       meta: [{ name: 'description', content: 'Nuxt 3 for beginners' }],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
     },

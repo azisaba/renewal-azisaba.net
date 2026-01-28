@@ -10,10 +10,10 @@
 <script setup>
 const colorMode = useColorMode();
 colorMode.preference = 'system';
-
+console.log("def", colorMode.value, colorMode.preference);
 const toggleColorMode = () => {
   colorMode.preference = (()=>{
-    console.log(colorMode.value, colorMode.preference);
+    console.log("con", colorMode.value, colorMode.preference);
     switch(colorMode.value) {
       case 'dark':
         return 'light';

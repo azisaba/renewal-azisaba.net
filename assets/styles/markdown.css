@@ -118,7 +118,7 @@
 @media (750px > width) {
     .markdown-element{
         padding-top: 5vh;
-        padding-left: 2vh;
-        padding-right: 2vh;
+        padding-left: 7px;
+        padding-right: 7px;
     }
 }

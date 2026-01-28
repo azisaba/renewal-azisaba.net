@@ -1,28 +1,20 @@
 <template>
   <nav class="navbar">
-    <div class="navbar-logo">
-      <NuxtLink to="/">アジ鯖</NuxtLink>
-    </div>
-
-    <div class="navbar-right">
-      <ul class="navbar-links" @mouseleave="resetAll()">
-        <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
-          <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
-          <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
-            <li v-for="item in level1Menu.menu" :key="item.name">
-              <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    <ToggleColorMode class="toggle-color-mode" />
-    </div>
+    <ul class="navbar-links" @mouseleave="resetAll()">
+      <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
+        <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
+        <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+          <li v-for="item in level1Menu.menu" :key="item.name" >
+            <NuxtLink :to=item.to exact >{{ item.name }}</NuxtLink>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 </template>
 
 <script setup>
 import {ref} from 'vue'
-import ToggleColorMode from "~/components/ToggleColorMode.vue";
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
@@ -95,16 +87,8 @@ const menu_mouse_over =async (item, event)=>{
 </script>
 
 <style scoped>
-.navbar {
-  left: 0;
-  right: 0;
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #333;
-  color: white;
+.navbar{
+  padding-right: 1rem;
 }
 
 .navbar-logo a {
@@ -149,13 +133,6 @@ const menu_mouse_over =async (item, event)=>{
   white-space: nowrap; /* 自動で改行せずに、要素幅に合わせて広がる */
   display: none;
   z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
-}
-
-.navbar-right {
-  display: flex;
-}
-.toggle-color-mode {
-  margin-left: 15px;
 }
 
 .dropdown-menu li {

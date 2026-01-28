@@ -41,4 +41,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
+useHead({ title: 'ページが見つかりません' })
+
 </script>
