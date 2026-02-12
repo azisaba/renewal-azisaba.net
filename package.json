@@ -19,6 +19,6 @@
     "remark-breaks": "^4.0.0",
     "vue": "latest",
     "vue-router": "latest",
-    "vuetify-nuxt-module": "^0.18.7"
+    "vuetify-nuxt-module": "^0.19.0"
   }
 }
