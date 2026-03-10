@@ -15,7 +15,7 @@
           </ul>
         </li>
       </ul>
-    <ToggleColorMode class="toggle-color-mode" />
+      <ToggleColorMode class="toggle-color-mode" />
     </div>
   </nav>
 </template>
@@ -54,9 +54,9 @@ const donation = ref([
 ])
 
 const other = ref([
-  {name: "サポート", showChildren: false, to: "/support",},
-  {name: "投票サイト", showChildren: false, to: "/links#投票サイト",},
-  {name: "リンク", showChildren: false, to: "/links",},
+  {name: "サポート", showChildren: false, to: "/support"},
+  {name: "投票サイト", showChildren: false, to: "/links#投票サイト"},
+  {name: "リンク", showChildren: false, to: "/links"},
 ])
 
 const showMenu = ref([
@@ -67,6 +67,7 @@ const showMenu = ref([
   {name: "サーバー紹介", show_menu: false, to: "/servers"},
   {name: "寄付", menu: donation, show_menu: false, to: "/donation"},
   {name: "開発ブログ(仮)", show_menu: false, to: "/devlog"},
+  {name: "求人", show_menu: false, to: "/recruit"},
   {name: "その他", menu: other, show_menu: false, to: "#"},
 ])
 
