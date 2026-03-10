@@ -4,18 +4,35 @@
       <NuxtLink to="/">アジ鯖</NuxtLink>
     </div>
 
-    <div class="navbar-right">
+    <button class="hamburger-btn" @click="toggleMobileMenu">
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+    </button>
+
+    <div class="navbar-right" :class="{ 'is-open': isMobileMenuOpen }">
       <ul class="navbar-links" @mouseleave="resetAll()">
         <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
-          <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
-          <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+          
+          <div class="menu-link-wrapper">
+            <NuxtLink :to="level1Menu.to" @mouseover="menu_mouse_over(level1Menu, $event)" @click="handleParentClick(level1Menu)" exact>
+              {{ level1Menu.name }}
+            </NuxtLink>
+            
+            <span v-if="level1Menu.menu" class="mobile-toggle-icon" @click.prevent="toggleSubMenu(level1Menu)">
+              <span class="arrow" :class="{ 'is-open': level1Menu.show_menu }">▼</span>
+            </span>
+          </div>
+
+          <ul v-if="level1Menu.menu" class="dropdown-menu" :class="{ 'is-submenu-open': level1Menu.show_menu }">
             <li v-for="item in level1Menu.menu" :key="item.name">
-              <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
+              <NuxtLink :to="item.to" @click="closeMobileMenu" exact>{{ item.name }}</NuxtLink>
             </li>
           </ul>
+
         </li>
       </ul>
-    <ToggleColorMode class="toggle-color-mode" />
+      <ToggleColorMode class="toggle-color-mode" />
     </div>
   </nav>
 </template>
@@ -24,10 +41,37 @@
 import {ref} from 'vue'
 import ToggleColorMode from "~/components/ToggleColorMode.vue";
 
+const isMobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false
+}
+
 const resetAll = () => {
   showMenu.value.forEach(item => {
     item.show_menu = false;
   });
+}
+
+const toggleSubMenu = (item) => {
+  item.show_menu = !item.show_menu;
+}
+
+const menu_mouse_over = async (item, event) => {
+  if (window.innerWidth > 768) {
+    resetAll()
+    item.show_menu = true
+  }
+}
+
+const handleParentClick = (item) => {
+  if (!item.menu) {
+    closeMobileMenu()
+  }
 }
 
 const rules = ref([
@@ -70,39 +114,11 @@ const showMenu = ref([
   {name: "その他", menu: other, show_menu: false, to: "#"},
 ])
 
-const menu_mouse_over =async (item, event)=>{
-  resetAll()
-  item.show_menu = true
-
-  /*
-  await nextTick()
-  const dropdown = event.target.nextElementSibling;
-
-  if (dropdown && false) {
-    const dropdownRect = dropdown.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    console.log(dropdownRect, viewportWidth, dropdownRect.right > viewportWidth)
-
-    // 画面外にはみ出さないように調整
-    if (dropdownRect.right > viewportWidth) {
-      dropdown.style.left = 'auto';
-      dropdown.style.right = '0';
-    } else {
-      dropdown.style.left = '0';
-      dropdown.style.right = 'auto';
-    }
-  }
-
-   */
-}
-
 </script>
 
 <style scoped>
 .navbar {
-  left: 0;
-  right: 0;
-  /*position: fixed;*/
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,6 +126,7 @@ const menu_mouse_over =async (item, event)=>{
   background-color: #333;
   color: white;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .navbar-logo a {
@@ -141,40 +158,21 @@ const menu_mouse_over =async (item, event)=>{
 
 .dropdown-menu {
   text-align: center;
-
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #444;
   list-style: none;
   padding: 0.5rem 1rem;
-
   box-sizing: border-box;
-
-  white-space: nowrap; /* 自動で改行せずに、要素幅に合わせて広がる */
+  white-space: nowrap; 
   display: none;
-  z-index: 1001; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
-}
-
-.navbar-right {
-  display: flex;
-}
-.toggle-color-mode {
-  margin-left: 15px;
+  z-index: 1001;
 }
 
 .dropdown-menu li {
   margin: 0;
   padding: 0.5rem 0;
-}
-
-.nav-parent:hover .dropdown-menu {
-  display: block;
-  right: 0;
-  left: auto;
-
-  width: auto;
-  min-width: 70px;
 }
 
 .dropdown-menu li a {
@@ -186,8 +184,141 @@ const menu_mouse_over =async (item, event)=>{
   text-decoration: underline;
 }
 
+.navbar-right {
+  display: flex;
+}
+
+.toggle-color-mode {
+  margin-left: 15px;
+}
+
 .nav-item {
-  /* TODO: ugly hack */
   top: 7px;
+}
+
+.mobile-toggle-icon {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .nav-parent:hover .dropdown-menu {
+    display: block;
+    right: 0;
+    left: auto;
+    width: auto;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-line.is-active:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger-line.is-active:nth-child(2) { opacity: 0; }
+  .hamburger-line.is-active:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .navbar-right {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  .navbar-right.is-open {
+    display: flex;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+
+  .menu-link-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #555;
+  }
+
+  .mobile-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .arrow {
+    font-size: 0.8rem;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  .arrow.is-open {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+    white-space: normal;
+  }
+
+  .dropdown-menu.is-submenu-open {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    padding: 0;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    font-size: 0.9rem;
+    color: #ccc;
+    text-align: left;
+  }
+
+  .toggle-color-mode {
+    margin: 2rem auto;
+  }
+
+  .nav-item {
+    top: 0;
+  }
 }
 </style>
