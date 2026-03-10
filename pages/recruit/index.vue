@@ -3,7 +3,6 @@
     <v-card
         v-for="article in data"
         :key="article.path"
-        :v-if="article.published"
         width="400px"
         height="400px"
         style="margin: 15px; display: flex; flex-direction: column; box-shadow: 0 0 4px #ccc;"
@@ -56,7 +55,7 @@ const { data: rawData } = await useAsyncData('recruit', () =>
 const query = useRoute()?.query
 let tagsFilter = String(query?.tags || "").split(',') || []
 if (tagsFilter[0] === '') tagsFilter = []
-let data = rawData.value?.toSorted((a, b) => b.path.localeCompare(a.path))
+let data = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path))
 if (tagsFilter.length > 0) {
   data = data?.filter(article => article.tags?.some(tag => tagsFilter.includes(tag)))
 }

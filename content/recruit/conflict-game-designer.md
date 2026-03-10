@@ -6,7 +6,7 @@ image: https://i.azisaba.net/devlog/2025-07-05-1/2023-03-17_22.14.13.png
 tags:
   - Conflict
   - ゲームデザイナー
-published: true
+published: false
 recruit_id: 220031cf
 ---
 
