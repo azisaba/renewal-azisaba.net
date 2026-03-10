@@ -2,6 +2,7 @@
 title: ビルダー
 description: ミニゲームに合わせた建築や詰みポジションなどのトラブル(建築面)の対応
 server: JunkGamesサーバー
+image: https://i.azisaba.net/albums/junkgames/2022-03-10_14.36.54.png
 tags:
   - JunkGames
   - ビルダー

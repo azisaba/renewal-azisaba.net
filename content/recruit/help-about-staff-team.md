@@ -1,6 +1,7 @@
 ---
 title: 運営チームについて
 server: ヘルプ記事
+image: https://i.azisaba.net/albums/2019-07-04_19.43.33.png
 tags:
   - ヘルプ
 published: true

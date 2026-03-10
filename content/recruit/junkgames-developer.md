@@ -2,6 +2,7 @@
 title: 開発者
 description: ミニゲーム制作及び早期バグ修正やシステムの考案・実装
 server: JunkGamesサーバー
+image: https://i.azisaba.net/albums/junkgames/2022-03-10_14.36.54.png
 tags:
   - JunkGames
   - エンジニアリング
