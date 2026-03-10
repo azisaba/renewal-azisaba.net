@@ -40,7 +40,7 @@
     </v-card>
   </div>
   <div v-else class="no-recruit">
-    <div v-if="tagsFilter.length > 0">
+    <div v-if="tags.length > 0">
       <p>フィルターに一致する求人が見つかりませんでした。</p>
       <p><NuxtLink to="/recruit">フィルターを外して再検索</NuxtLink></p>
     </div>
@@ -52,13 +52,19 @@
 const { data: rawData } = await useAsyncData('recruit', () =>
     queryCollection('recruit').all(),
 )
-const query = useRoute()?.query
-let tagsFilter = String(query?.tags || "").split(',') || []
-if (tagsFilter[0] === '') tagsFilter = []
-let data = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path))
-if (tagsFilter.length > 0) {
-  data = data?.filter(article => article.tags?.some(tag => tagsFilter.includes(tag)))
-}
+const data = ref(rawData.value)
+const tags = ref<string[]>([])
+onMounted(() => {
+  const query = new URLSearchParams(location?.hash?.slice(1))
+  let tagsFilter = String(query.get("tags") || "").split(',') || []
+  if (tagsFilter[0] === '') tagsFilter = []
+  let localData = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path)) || null
+  if (tagsFilter.length > 0) {
+    localData = localData?.filter(article => article.tags?.some(tag => tagsFilter.includes(tag))) || null
+  }
+  tags.value = tagsFilter
+  data.value = localData
+})
 </script>
 
 <style scoped>

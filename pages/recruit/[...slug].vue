@@ -39,7 +39,7 @@
       <hr />
       <p>
         <span>タグ: </span>
-        <a v-for="tag in data.tags" :key="tag" class="tag-link" :href="'/recruit?tags=' + tag">{{ tag }}</a>
+        <a v-for="tag in data.tags" :key="tag" class="tag-link" :href="'/recruit#tags=' + tag">{{ tag }}</a>
       </p>
     </article>
     <PageNotFound v-else message="page is not found."/>
