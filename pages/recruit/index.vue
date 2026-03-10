@@ -1,4 +1,13 @@
 <template>
+  <div class="filter-container">
+    <v-select
+        @update:model-value="arr => replaceTags(arr)"
+        v-model="tags"
+        :items="allTags"
+        label="タグで絞り込む"
+        multiple
+    ></v-select>
+  </div>
   <div v-if="data?.length" class="article-container">
     <v-card
         v-for="article in data"
@@ -34,7 +43,9 @@
           詳細を読む
         </v-btn>
         <span style="font-size: 0.8em; color: gray; top: 2px; position: relative;">
-          {{ article.server && ` ${article.server}` }}
+          <template v-if="article.tags">
+            <NuxtLink v-for="tag in article.tags" :href="'?tags=' + tag" class="tag-link"> #{{ tag }}</NuxtLink>
+          </template>
         </span>
       </v-card-actions>
     </v-card>
@@ -53,18 +64,34 @@ const { data: rawData } = await useAsyncData('recruit', () =>
     queryCollection('recruit').all(),
 )
 const data = ref(rawData.value)
+const allTags = (rawData.value?.filter(e => e.published)?.flatMap(e => e.tags || []) || []).filter((v, i, a) => a.indexOf(v) === i)
 const tags = ref<string[]>([])
-onMounted(() => {
-  const query = new URLSearchParams(location?.hash?.slice(1))
-  let tagsFilter = String(query.get("tags") || "").split(',') || []
-  if (tagsFilter[0] === '') tagsFilter = []
-  let localData = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path)) || null
-  if (tagsFilter.length > 0) {
-    localData = localData?.filter(article => article.tags?.some(tag => tagsFilter.includes(tag))) || null
+const queueRefresh = () => {
+  setTimeout(() => {
+    const query = new URLSearchParams(location?.search?.slice(1))
+    let tagsFilter = String(query.get("tags") || "").split(',') || []
+    if (tagsFilter[0] === '') tagsFilter = []
+    let localData = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path)) || null
+    if (tagsFilter.length > 0) {
+      localData = localData?.filter(article => article.tags?.some(tag => tagsFilter.includes(tag))) || null
+    }
+    tags.value = tagsFilter
+    data.value = localData
+  }, 10)
+}
+onMounted(queueRefresh)
+onBeforeRouteUpdate(queueRefresh)
+
+const replaceTags = (tags: string | readonly string[] | null) => {
+  if (tags === null) {
+    history.replaceState(null, '', '')
+    queueRefresh()
+  } else {
+    const array = Array.isArray(tags) ? tags : [tags]
+    history.replaceState(null, '', `?tags=${array.join(',')}`)
+    queueRefresh()
   }
-  tags.value = tagsFilter
-  data.value = localData
-})
+}
 </script>
 
 <style scoped>
@@ -82,5 +109,13 @@ onMounted(() => {
   align-items: center;
   text-align: center;
   padding: 20px;
+}
+.tag-link {
+  text-decoration: none;
+  color: #007bff;
+}
+.filter-container {
+  width: 85%;
+  margin: 10px auto;
 }
 </style>
