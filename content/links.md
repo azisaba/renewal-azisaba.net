@@ -8,4 +8,4 @@ title: 各種リンク
 ## 投票サイト
 
 - [Japan Minecraft Servers](https://minecraft.jp/servers/azisaba.net)
-- [monocraft](https://monocraft.net/servers/xWBVrf1nqB2P0LxlMm2v)
+- [MinePortal](https://mineportal.jp/servers/cmnd29mta000012e0nk9bkxmj)
