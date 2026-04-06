@@ -77,18 +77,28 @@ const closeMobileMenu = () => {
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
-    item.showMenu = false
+    item.show_menu = false
   })
 }
 
 const toggleSubMenu = (item) => {
-  item.showMenu = !item.showMenu
+  item.show_menu = !item.show_menu
 }
 
 const menu_mouse_over = (item) => {
   if (typeof window !== 'undefined' && window.innerWidth > MOBILE_BREAKPOINT) {
     resetAll()
-    item.showMenu = true
+    item.show_menu = true
+  }
+}
+
+const handleResize = () => {
+  if (typeof window === 'undefined') {
+    return
+  }
+  resetAll()
+  if (window.innerWidth > MOBILE_BREAKPOINT) {
+    closeMobileMenu()
   }
 }
 
@@ -130,13 +140,13 @@ watch(isMobileMenuOpen, (isOpen) => {
 onMounted(() => {
   document.addEventListener('click', handleDocumentClick)
   document.addEventListener('keydown', handleEscapeKey)
-  window.addEventListener('resize', resetAll)
+  window.addEventListener('resize', handleResize)
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleDocumentClick)
   document.removeEventListener('keydown', handleEscapeKey)
-  window.removeEventListener('resize', resetAll)
+  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
 
@@ -268,6 +278,10 @@ const showMenu = ref([
   border: 0;
   background: transparent;
   color: inherit;
+}
+
+.hamburger-btn {
+  display: none;
 }
 
 @media (min-width: 769px) {
