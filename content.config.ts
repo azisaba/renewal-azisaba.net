@@ -38,5 +38,20 @@ export default defineContentConfig({
         date: z.date().nullable(),
       })
     }),
+    recruit: defineCollection({
+      type: "page",
+      source: "recruit/*.md",
+      // スキーマ定義
+      schema: z.object({
+        title: z.string(),
+        server: z.string().nullable(),
+        description: z.string().nullable(),
+        tags: z.array(z.string()).default([]),
+        image: z.string().nullable(),
+        image_cover: z.boolean().default(true),
+        published: z.boolean(),
+        recruit_id: z.string().nullable(),
+      })
+    }),
   }
 })

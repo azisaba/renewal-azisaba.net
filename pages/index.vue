@@ -10,6 +10,11 @@
             接続方法 <span style="scale: -1 1">&#x2B05;🏃</span>
           </NuxtLink>
         </p>
+        <p>
+          <NuxtLink class="link-arrow-color-only" style="text-decoration: none;" to="/recruit">
+            運営応募はこちら
+          </NuxtLink>
+        </p>
       </div>
     </div>
   </div>
@@ -43,6 +48,14 @@
   }
 }
 
+a.link-arrow-color-only {
+  color: midnightblue;
+}
+
+.dark-mode a.link-arrow-color-only {
+  color: deepskyblue;
+}
+
 a.link-arrow {
   text-decoration: none;
   color: midnightblue;
@@ -71,4 +84,8 @@ a.link-arrow:hover span {
 </style>
 
 <script setup>
+console.log("------------------------------")
+console.log("あーあ、見つかっちゃった")
+console.log("https://azisaba.net/recruit")
+console.log("------------------------------")
 </script>

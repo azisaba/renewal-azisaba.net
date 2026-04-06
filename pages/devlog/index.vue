@@ -3,7 +3,6 @@
     <v-card
         v-for="article in data"
         :key="article.path"
-        :v-if="article.published"
         width="400px"
         height="400px"
         style="margin: 15px; display: flex; flex-direction: column; box-shadow: 0 0 4px #ccc;"
@@ -47,7 +46,7 @@
 const { data: rawData } = await useAsyncData('devlog', () =>
   queryCollection('devlog').all(),
 )
-const data = rawData.value?.toSorted((a, b) => b.path.localeCompare(a.path))
+const data = rawData.value?.filter(e => e.published)?.toSorted((a, b) => b.path.localeCompare(a.path))
 </script>
 
 <style scoped>
