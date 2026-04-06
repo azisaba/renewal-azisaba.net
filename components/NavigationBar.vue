@@ -1,30 +1,50 @@
 <template>
-  <nav class="navbar">
+  <nav ref="navbarRef" class="navbar">
     <div class="navbar-logo">
       <NuxtLink to="/">アジ鯖</NuxtLink>
     </div>
 
-    <button class="hamburger-btn" @click="toggleMobileMenu">
+    <button
+      class="hamburger-btn"
+      type="button"
+      aria-controls="mobile-nav-links"
+      :aria-expanded="isMobileMenuOpen"
+      aria-label="メニューを開閉"
+      @click="toggleMobileMenu"
+    >
       <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
       <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
       <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
     </button>
 
-    <div class="navbar-right" :class="{ 'is-open': isMobileMenuOpen }">
+    <div id="mobile-nav-links" class="navbar-right" :class="{ 'is-open': isMobileMenuOpen }">
       <ul class="navbar-links" @mouseleave="resetAll()">
-        <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
+        <li class="nav-item nav-parent" v-for="(level1Menu, index) in showMenu" :key="level1Menu.name">
           
           <div class="menu-link-wrapper">
             <NuxtLink :to="level1Menu.to" @mouseover="menu_mouse_over(level1Menu, $event)" @click="handleParentClick(level1Menu)" exact>
               {{ level1Menu.name }}
             </NuxtLink>
             
-            <span v-if="level1Menu.menu" class="mobile-toggle-icon" @click.prevent="toggleSubMenu(level1Menu)">
+            <button
+              v-if="level1Menu.menu"
+              class="mobile-toggle-icon"
+              type="button"
+              :aria-controls="`submenu-${index}`"
+              :aria-expanded="level1Menu.show_menu"
+              :aria-label="`${level1Menu.name}のサブメニューを開閉`"
+              @click.stop.prevent="toggleSubMenu(level1Menu)"
+            >
               <span class="arrow" :class="{ 'is-open': level1Menu.show_menu }">▼</span>
-            </span>
+            </button>
           </div>
 
-          <ul v-if="level1Menu.menu" class="dropdown-menu" :class="{ 'is-submenu-open': level1Menu.show_menu }">
+          <ul
+            v-if="level1Menu.menu"
+            :id="`submenu-${index}`"
+            class="dropdown-menu"
+            :class="{ 'is-submenu-open': level1Menu.show_menu }"
+          >
             <li v-for="item in level1Menu.menu" :key="item.name">
               <NuxtLink :to="item.to" @click="closeMobileMenu" exact>{{ item.name }}</NuxtLink>
             </li>
@@ -38,9 +58,13 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import ToggleColorMode from "~/components/ToggleColorMode.vue";
 
+const MOBILE_BREAKPOINT = 768
+const route = useRoute()
+
+const navbarRef = ref(null)
 const isMobileMenuOpen = ref(false)
 
 const toggleMobileMenu = () => {
@@ -53,18 +77,18 @@ const closeMobileMenu = () => {
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
-    item.show_menu = false;
-  });
+    item.showMenu = false
+  })
 }
 
 const toggleSubMenu = (item) => {
-  item.show_menu = !item.show_menu;
+  item.showMenu = !item.showMenu
 }
 
-const menu_mouse_over = async (item, event) => {
-  if (window.innerWidth > 768) {
+const menu_mouse_over = (item) => {
+  if (typeof window !== 'undefined' && window.innerWidth > MOBILE_BREAKPOINT) {
     resetAll()
-    item.show_menu = true
+    item.showMenu = true
   }
 }
 
@@ -73,6 +97,48 @@ const handleParentClick = (item) => {
     closeMobileMenu()
   }
 }
+
+const handleDocumentClick = (event) => {
+  if (!isMobileMenuOpen.value || !navbarRef.value) {
+    return
+  }
+  if (!navbarRef.value.contains(event.target)) {
+    closeMobileMenu()
+  }
+}
+
+const handleEscapeKey = (event) => {
+  if (event.key === 'Escape') {
+    closeMobileMenu()
+  }
+}
+
+watch(() => route.fullPath, () => {
+  closeMobileMenu()
+})
+
+watch(isMobileMenuOpen, (isOpen) => {
+  if (typeof document === 'undefined') {
+    return
+  }
+  document.body.style.overflow = isOpen ? 'hidden' : ''
+  if (!isOpen) {
+    resetAll()
+  }
+})
+
+onMounted(() => {
+  document.addEventListener('click', handleDocumentClick)
+  document.addEventListener('keydown', handleEscapeKey)
+  window.addEventListener('resize', resetAll)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleDocumentClick)
+  document.removeEventListener('keydown', handleEscapeKey)
+  window.removeEventListener('resize', resetAll)
+  document.body.style.overflow = ''
+})
 
 const rules = ref([
   {name: "利用規約", showChildren: false, to: "/rules/terms"},
@@ -199,6 +265,9 @@ const showMenu = ref([
 
 .mobile-toggle-icon {
   display: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
 }
 
 @media (min-width: 769px) {
