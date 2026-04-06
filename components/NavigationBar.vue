@@ -22,7 +22,7 @@
         <li class="nav-item nav-parent" v-for="(level1Menu, index) in showMenu" :key="level1Menu.name">
           
           <div class="menu-link-wrapper">
-            <NuxtLink :to="level1Menu.to" @mouseover="menu_mouse_over(level1Menu, $event)" @click="handleParentClick(level1Menu)" exact>
+            <NuxtLink :to="level1Menu.to" @mouseover="handleMenuMouseOver(level1Menu)" @click="handleParentClick(level1Menu)" exact>
               {{ level1Menu.name }}
             </NuxtLink>
             
@@ -66,6 +66,7 @@ const route = useRoute()
 
 const navbarRef = ref(null)
 const isMobileMenuOpen = ref(false)
+const previousBodyOverflow = ref(null)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -85,7 +86,7 @@ const toggleSubMenu = (item) => {
   item.show_menu = !item.show_menu
 }
 
-const menu_mouse_over = (item) => {
+const handleMenuMouseOver = (item) => {
   if (typeof window !== 'undefined' && window.innerWidth > MOBILE_BREAKPOINT) {
     resetAll()
     item.show_menu = true
@@ -131,7 +132,15 @@ watch(isMobileMenuOpen, (isOpen) => {
   if (typeof document === 'undefined') {
     return
   }
-  document.body.style.overflow = isOpen ? 'hidden' : ''
+  if (isOpen) {
+    if (previousBodyOverflow.value === null) {
+      previousBodyOverflow.value = document.body.style.overflow
+    }
+    document.body.style.overflow = 'hidden'
+  } else if (previousBodyOverflow.value !== null) {
+    document.body.style.overflow = previousBodyOverflow.value
+    previousBodyOverflow.value = null
+  }
   if (!isOpen) {
     resetAll()
   }
@@ -147,7 +156,10 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleDocumentClick)
   document.removeEventListener('keydown', handleEscapeKey)
   window.removeEventListener('resize', handleResize)
-  document.body.style.overflow = ''
+  if (previousBodyOverflow.value !== null) {
+    document.body.style.overflow = previousBodyOverflow.value
+    previousBodyOverflow.value = null
+  }
 })
 
 const rules = ref([
