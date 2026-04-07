@@ -111,12 +111,17 @@ const handleResize = () => {
 }
 
 const handleParentClick = (item, event) => {
-  if (typeof window !== 'undefined' && window.innerWidth <= MOBILE_BREAKPOINT && item.menu) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= MOBILE_BREAKPOINT
+  const hasSubMenu = !!item.menu
+  const hasRealDestination = !!item.to && item.to !== '#'
+
+  if (isMobile && hasSubMenu && !hasRealDestination) {
     event.preventDefault()
     toggleSubMenu(item)
     return
   }
-  if (!item.menu) {
+
+  if (isMobile) {
     closeMobileMenu()
   }
 }
