@@ -349,6 +349,8 @@ const showMenu = ref([
     top: 100%;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 100%);
+    overflow-y: auto;
     background-color: #333;
     flex-direction: column;
     align-items: stretch;
