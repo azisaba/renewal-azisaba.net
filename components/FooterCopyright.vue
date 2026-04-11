@@ -8,6 +8,7 @@
 .copyright {
   padding-left: 10px;
   width: 280px;
+  box-sizing: content-box;
 }
 
 @media (710px >= width) {
