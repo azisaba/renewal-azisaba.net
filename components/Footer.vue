@@ -10,11 +10,6 @@
 </template>
 
 <script setup>
-import FooterCopyright from "~/components/FooterCopyright.vue";
-import FooterTopBar from "~/components/FooterTopBar.vue";
-
-const colorMode = useColorMode()
-console.log(colorMode.preference)
 </script>
 
 <style scoped>
