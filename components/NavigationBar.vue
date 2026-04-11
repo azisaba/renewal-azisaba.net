@@ -1,28 +1,85 @@
 <template>
-  <nav class="navbar">
+  <nav ref="navbarRef" class="navbar">
     <div class="navbar-logo">
       <NuxtLink to="/">アジ鯖</NuxtLink>
     </div>
 
-    <div class="navbar-right">
+    <button
+        class="hamburger-btn"
+        type="button"
+        aria-controls="mobile-nav-links"
+        :aria-expanded="isMobileMenuOpen"
+        aria-label="メニューを開閉"
+        @click="toggleMobileMenu"
+    >
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+      <span class="hamburger-line" :class="{ 'is-active': isMobileMenuOpen }"></span>
+    </button>
+
+    <div id="mobile-nav-links" class="navbar-right" :class="{ 'is-open': isMobileMenuOpen }">
       <ul class="navbar-links" @mouseleave="resetAll()">
-        <li class="nav-item nav-parent" v-for="level1Menu in showMenu" :key="level1Menu.name">
-          <NuxtLink :to=level1Menu.to v-on:mouseover="menu_mouse_over(level1Menu, $event)" exact>{{ level1Menu.name }}</NuxtLink>
-          <ul v-if="level1Menu.menu" class="dropdown-menu" v-show="level1Menu.show_menu">
+        <li class="nav-item nav-parent" v-for="(level1Menu, index) in showMenu" :key="level1Menu.name">
+
+          <div class="menu-link-wrapper">
+            <NuxtLink
+                :to="level1Menu.to"
+                @mouseover="handleMenuMouseOver(level1Menu)"
+                @click="handleParentClick(level1Menu, $event)"
+            >
+              {{ level1Menu.name }}
+            </NuxtLink>
+
+            <button
+                v-if="level1Menu.menu"
+                class="mobile-toggle-icon"
+                type="button"
+                aria-haspopup="true"
+                :aria-controls="`submenu-${index}`"
+                :aria-expanded="level1Menu.show_menu"
+                :aria-label="`${level1Menu.name}のサブメニューを開閉`"
+                @click.stop.prevent="toggleSubMenu(level1Menu)"
+            >
+              <span class="arrow" :class="{ 'is-open': level1Menu.show_menu }">▼</span>
+            </button>
+          </div>
+
+          <ul
+              v-if="level1Menu.menu"
+              :id="`submenu-${index}`"
+              class="dropdown-menu"
+              :class="{ 'is-submenu-open': level1Menu.show_menu }"
+          >
             <li v-for="item in level1Menu.menu" :key="item.name">
-              <NuxtLink :to=item.to exact>{{ item.name }}</NuxtLink>
+              <NuxtLink :to="item.to" @click="closeMobileMenu">{{ item.name }}</NuxtLink>
             </li>
           </ul>
+
         </li>
       </ul>
-    <ToggleColorMode class="toggle-color-mode" />
+      <ToggleColorMode class="toggle-color-mode" />
     </div>
   </nav>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import ToggleColorMode from "~/components/ToggleColorMode.vue";
+
+const MOBILE_BREAKPOINT = 768
+const route = useRoute()
+
+const navbarRef = ref(null)
+const isMobileMenuOpen = ref(false)
+const previousBodyOverflow = ref(null)
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false
+}
 
 const resetAll = () => {
   showMenu.value.forEach(item => {
@@ -167,15 +224,15 @@ const showMenu = ref([
 
 <style scoped>
 .navbar {
-  left: 0;
-  right: 0;
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #333;
   color: white;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .navbar-logo a {
@@ -216,14 +273,7 @@ const showMenu = ref([
   box-sizing: border-box;
   white-space: nowrap;
   display: none;
-  z-index: 1000; /* ドロップダウンメニューが他の要素の上に表示されるように調整 */
-}
-
-.navbar-right {
-  display: flex;
-}
-.toggle-color-mode {
-  margin-left: 15px;
+  z-index: 1001;
 }
 
 .dropdown-menu li {
