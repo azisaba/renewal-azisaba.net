@@ -2,16 +2,19 @@
 
 新しい公式サイト
 
+## 注意
+パッケージマネージャーは`npm`から`pnpm`に変更になりました。
+
 ## 開発サーバー
 
 ```shell
-npm i
-npm run dev
+pnpm i
+pnpm dev
 ```
 
 ## ビルド
 
 ```shell
-npm i
-npm run build
+pnpm i
+pnpm build
 ```
