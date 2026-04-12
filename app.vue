@@ -28,6 +28,10 @@ html, body {
   background-color: #3e3e3e;
   color: #ebf4f1;
 }
+
+:root {
+  color-scheme: auto !important;
+}
 </style>
 
 <script setup lang="ts">

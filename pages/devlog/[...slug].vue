@@ -11,7 +11,7 @@
       <h1>{{ data.title }}</h1>
       <span class="subtitle">
         {{ data.author && ` by ${data.author}` }}
-        {{ data.date && ` on ${data.date}` }}
+        {{ data.date && ` on ${dayjs(data.date).format("YYYY-MM-DD")}` }}
       </span>
       <ContentRenderer :value="data" class="markdown-content"/>
     </article>
@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs'
+dayjs().format() 
+
 const route = useRoute()
 const { data } = await useAsyncData(`devlog-${route.path}`, () => {
   return queryCollection('devlog').path(route.path).first()

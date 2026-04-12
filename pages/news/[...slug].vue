@@ -9,7 +9,7 @@
           class="cover-image"
       ></v-img>
       <h1>{{ data.title }}</h1>
-      <span class="published-at" v-if="data.date">{{ data.date }}</span>
+      <span class="published-at" v-if="data.date">{{ dayjs(data.date).format("YYYY-MM-DD") }}</span>
       <ContentRenderer :value="data" class="markdown-content"/>
     </article>
     <PageNotFound v-else message="page is not found."/>
@@ -17,6 +17,9 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs'
+dayjs().format() 
+
 const route = useRoute()
 const { data } = await useAsyncData(`news-${route.path}`, () => {
   return queryCollection('news').path(route.path).first()
