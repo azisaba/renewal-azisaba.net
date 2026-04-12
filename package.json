@@ -21,6 +21,6 @@
     "vue": "latest",
     "vue-router": "latest",
     "vuetify": "3.12.5",
-    "vuetify-nuxt-module": "^0.18.7"
+    "vuetify-nuxt-module": "^0.19.0"
   }
 }
