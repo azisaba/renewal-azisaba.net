@@ -35,7 +35,7 @@
         </v-btn>
         <span style="font-size: 0.8em; color: gray; top: 2px; position: relative;">
           {{ article.author && ` by ${article.author}` }}
-          {{ article.date && ` on ${article.date}` }}
+          {{ article.date && ` on ${dayjs(article.date).format("YYYY-MM-DD")}` }}
         </span>
       </v-card-actions>
     </v-card>
@@ -43,6 +43,9 @@
 </template>
 
 <script lang="ts" setup>
+import dayjs from 'dayjs'
+dayjs().format() 
+
 const { data: rawData } = await useAsyncData('devlog', () =>
   queryCollection('devlog').all(),
 )
