@@ -14,6 +14,7 @@ title: 接続方法
 
 まずはルールと規約を読みましょう。
 
+- [Minecraftサーバ個別規定](/rules/minecraft-server-policy)
 - [全体サーバールール](/rules/global-server-rules)
 - [各サーバールール](/rules/server-rules)
 - [利用規約](/rules/terms)
@@ -94,6 +95,6 @@ title: 接続方法
 
 便利なリンク
 - [アジ鯖公式Wiki](https://wiki.azisaba.net)
-- [サーバー一覧](/servers)
+- [サーバー紹介](/servers)
 
 <span style="font-size: 2em">よいアジ鯖ライフを！！！！！！！</span>
