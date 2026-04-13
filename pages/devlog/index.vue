@@ -1,26 +1,19 @@
 <template>
   <div class="article-container">
-    <ArticleCard v-for="article in data"
-      :key="article.path"
-      :path="article.path"
+    <DevlogArticleCard v-for="article in data" 
+      :key="article.path" 
+      :path="article.path" 
       :title="article.title"
-      :description="article.description"
+      :description="article.description" 
+      :author="article.author" 
+      :date="article.date" 
       :image="article.image"
-      :image_cover="article.image_cover"
-    >
-      <template #meta>
-        {{ article.author && ` by ${article.author}` }}
-        {{ article.date && ` on ${dayjs(article.date).format("YYYY-MM-DD")}` }}
-      </template>
-    </ArticleCard>
+      :image_cover="article.image_cover" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import dayjs from 'dayjs'
-import { ar } from 'vuetify/locale';
-dayjs().format()
-
+import DevlogArticleCard from '~/components/ArticleCard/DevlogArticleCard.vue'
 const { data: rawData } = await useAsyncData('devlog', () =>
   queryCollection('devlog').all(),
 )
