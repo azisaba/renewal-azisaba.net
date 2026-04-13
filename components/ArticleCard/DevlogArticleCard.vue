@@ -22,7 +22,7 @@ defineProps<{
     title: string,
     description: string | null,
     author: string | null,
-    date: string,
+    date: Date | null,
     image: string | null,
     image_cover: boolean | undefined,
 }>()

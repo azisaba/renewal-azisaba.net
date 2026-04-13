@@ -20,7 +20,7 @@ defineProps<{
     path: string,
     title: string,
     description: string | null,
-    date: string,
+    date: Date | null,
     image: string | null,
     image_cover: boolean | undefined,
 }>()
