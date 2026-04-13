@@ -3,7 +3,7 @@
     <v-select @update:model-value="arr => replaceTags(arr)" v-model="tags" :items="allTags" label="タグで絞り込む" multiple></v-select>
   </div>
   <div v-if="data?.length" class="article-container">
-    <ArticleCard v-for="article in data" 
+    <RecruitArticleCard v-for="article in data" 
       :key="article.path"
       :path="article.path"
       :title="article.title"
@@ -11,14 +11,14 @@
       :image="article.image"
       :image_cover="article.image_cover"
     >
-      <template #meta>
+      <template #tags>
         <template v-if="article.tags">
           <NuxtLink v-for="tag in article.tags" :key="tag" :href="'?tags=' + tag" class="tag-link">
             #{{ tag }}
           </NuxtLink>
         </template>
       </template>
-    </ArticleCard>
+    </RecruitArticleCard>
   </div>
   <div v-else class="no-recruit">
     <div v-if="tags.length > 0">
@@ -32,6 +32,8 @@
 </template>
 
 <script lang="ts" setup>
+import RecruitArticleCard from '~/components/ArticleCard/RecruitArticleCard.vue'
+
 const { data: rawData } = await useAsyncData('recruit', () =>
   queryCollection('recruit').all(),
 )

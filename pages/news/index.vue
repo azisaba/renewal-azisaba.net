@@ -1,23 +1,19 @@
 <template>
   <div class="article-container">
-    <ArticleCard v-for="article in data"
+    <NewsArticleCard v-for="article in data"
       :key="article.path"
       :path="article.path"
       :title="article.title"
       :description="article.description"
+      :date="article.date"
       :image="article.image"
       :image_cover="article.image_cover"
-    >
-      <template #meta>
-        {{ article.date && ` on ${dayjs(article.date).format("YYYY-MM-DD")}` }}
-      </template>
-    </ArticleCard>
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import dayjs from 'dayjs'
-dayjs().format()
+import NewsArticleCard from '~/components/ArticleCard/NewsArticleCard.vue';
 
 const { data: rawData } = await useAsyncData('news', () =>
   queryCollection('news').all(),
