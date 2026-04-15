@@ -1,7 +1,7 @@
 <template>
   <div class="social">
     <a href="https://discord.com/invite/azisaba" target="_blank"><i class="bi bi-discord"></i></a>
-    <a href="https://twitter.com/AzisabaNetwork" target="_blank"><i class="bi bi-twitter-x"></i></a>
+    <a href="https://x.com/AzisabaNetwork" target="_blank"><i class="bi bi-twitter-x"></i></a>
     <a href="https://www.youtube.com/@AzisabaNetwork" target="_blank"><i class="bi bi-youtube"></i></a>
     <a href="https://github.com/AzisabaNetwork" target="_blank"><i class="bi bi-github"></i></a>
   </div>

@@ -33,22 +33,18 @@ a {
 /* Heading Styles */
 .markdown-content h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
 .markdown-content h2 {
     font-size: 1.75rem;
-    margin-bottom: 0.75rem;
 }
 
 .markdown-content h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .markdown-content h4 {
     font-size: 1.25rem;
-    margin-bottom: 0.25rem;
 }
 
 /* Ensure links within headings maintain a consistent color */
@@ -64,7 +60,8 @@ a {
 .markdown-content h2,
 .markdown-content h3,
 .markdown-content h4 {
-    padding-top: 10px;
+    padding-top: 1rem;
+    margin-bottom: 0.1rem;
 }
 
 /* Paragraph Styles */

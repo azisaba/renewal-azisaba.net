@@ -66,7 +66,7 @@
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import ToggleColorMode from "~/components/ToggleColorMode.vue";
 
-const MOBILE_BREAKPOINT = 768
+const MOBILE_BREAKPOINT = 900
 const route = useRoute()
 
 const navbarRef = ref(null)
@@ -313,7 +313,7 @@ const showMenu = ref([
   display: none;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 901) {
   .nav-parent:hover .dropdown-menu {
     display: block;
     right: 0;
@@ -323,7 +323,7 @@ const showMenu = ref([
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hamburger-btn {
     display: flex;
     flex-direction: column;
