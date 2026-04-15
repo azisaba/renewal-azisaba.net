@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <NavigationBar />
+    <Header />
     <div class="slot">
       <slot />
     </div>
@@ -16,6 +16,7 @@
 }
 
 .slot {
+  margin-top: 5rem;
   flex: 1; /* flexに1つだけ数値を指定するとその要素は伸びる */
 }
 

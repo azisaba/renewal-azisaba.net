@@ -1,8 +1,8 @@
 <template>
   <header>
     <NuxtLink class="site-logo" to="/">アジ鯖</NuxtLink>
-    <div class="header-right-section">
-      <navigation-bar />
+    <div class="menu-and-color-mode">
+      <Menu class="menu" />
       <ToggleColorMode />
     </div>
   </header>
@@ -10,6 +10,8 @@
 
 <script setup>
 import ToggleColorMode from "~/components/ToggleColorMode.vue";
+import Menu from "~/components/Menu/Menu.vue"
+
 </script>
 
 <style scoped>
@@ -20,9 +22,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  height: 4rem;
+  padding-left: 2rem;
+  padding-right: 0.7rem;
   background-color: #333;
   color: white;
+  z-index: 10;
 }
 
 .site-logo {
@@ -35,17 +40,17 @@ header {
   display: flex;
 }
 
-.dark-mode footer{
-  background-color: #2c2c2c;
+.menu-and-color-mode {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  /*justify-content: center;*/
+  padding: 0;
+  margin: 0;
 }
 
-@media (475px > width) {
-  .footer-bottom {
-    width: auto;
-    display: block; /* 非表示 */
-    text-align: center;
-    padding-top: 1vh;
-  }
+.menu {
+  margin-right: 15px;
 }
 
 </style>
