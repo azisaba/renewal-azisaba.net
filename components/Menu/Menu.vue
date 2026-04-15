@@ -178,15 +178,14 @@ watch(() => is_open_mobile_menu, (is_open) => {
 @media (max-width: 970px) {
     .menu-container {
         display: none;
-        /* デフォルトは非表示 */
         position: fixed;
         top: 4rem;
-        /* 親のnav等の高さに合わせて調整してください */
         right: 0;
         bottom: 0;
         width: 300px;
         max-width: 100%;
         background-color: rgb(68, 68, 68);
+        border-left: 4px solid #717171;
         z-index: 80;
 
         overflow-y: auto;
