@@ -2,13 +2,10 @@
         <ul class="top-ul">
             <li v-for="top_menu in menus" @mouseover="open_menu_name = top_menu.name"
                 @mouseleave="open_menu_name = null" class="top-li">
-                <div class="second-menu-wapper">
                     <NuxtLink :to="top_menu.to" class="top-link">
                         {{ top_menu.name }}
                     </NuxtLink>
-                
-                </div>
-                <ul v-if="open_menu_name == top_menu.name" class="second-ul">
+                <ul v-show="open_menu_name == top_menu.name && top_menu.menu" class="second-ul">
                     <li v-for="second_menu in top_menu.menu" class="second-li">
                         <NuxtLink :to="second_menu.to" class="second-link">{{ second_menu.name }}</NuxtLink>
                     </li>
@@ -30,26 +27,31 @@ const open_second_menu = (manu_name: string)=>{
     .top-ul {
         display: flex;
         list-style: none;
-        height: 60px;
-        background-color: rgb(216, 246, 236);
+        height: 100%;
     }
 
     .top-li {
         /* ① サブメニューの基準点にする */
         position: relative;
-        color: black;
+        color: aliceblue;
         height: 100%;
         
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        z-index: 10;
     }
 
     .top-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         padding: 0 10px;
-        height: 100%;
         text-decoration: none;
         color: inherit;
+        height: 100%;
+    }
+
+    .top-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     .second-ul {
@@ -61,8 +63,9 @@ const open_second_menu = (manu_name: string)=>{
         white-space: nowrap;
 
         list-style: none;
-        background-color: rgb(216, 220, 246);
-        color: black;
+        background-color: rgb(68, 68, 68);
+        border-top: 4px solid #4a9bf2;;
+        color: aliceblue;
         padding: 0;
         margin: 0;
         z-index: 10;
@@ -77,6 +80,6 @@ const open_second_menu = (manu_name: string)=>{
     }
 
     .second-link:hover {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 </style>
