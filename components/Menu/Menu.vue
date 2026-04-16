@@ -35,7 +35,8 @@
 <script setup lang="ts">
 import { menus } from "~/menu.config"
 
-const MOBILE_BREAKPOINT_WINDOW_WIDTH = 970;
+const MOBILE_BREAKPOINT_WINDOW_WIDTH = 850;
+
 const is_open_mobile_menu = ref(false)
 const open_menu_name = ref<string | null>(null)
 
@@ -127,10 +128,9 @@ onBeforeUnmount(() => {
 }
 
 
-@media (min-width: 971px) {
+@media (min-width: 851px) {
     .menu-container {
         display: block !important;
-        /* PCでは常に表示 */
         height: 100%;
     }
 
@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
         align-items: center;
         justify-content: center;
         padding: 0 5px 0 10px;
-        /* アイコンがあるため右余白を調整 */
+
         height: 100%;
     }
 
@@ -199,7 +199,7 @@ onBeforeUnmount(() => {
     }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 850px) {
     .menu-container {
         display: none;
         position: fixed;
@@ -239,7 +239,6 @@ onBeforeUnmount(() => {
         display: block;
         padding: 1rem 1rem;
         flex-grow: 1;
-        /* リンク領域を可能な限り広げる */
     }
 
     .toggle-icon {
