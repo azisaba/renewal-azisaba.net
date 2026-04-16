@@ -25,11 +25,13 @@ const donation: Menu[] = [
     { name: "寄付に関する注意事項", to: "/donation/note" },
     { name: "寄付金利用方法について", to: "/donation/usage" },
     { name: "特定商取引法に基づく表記", to: "/donation/commercial-transactions" },
-]
+    ]
 
 const other: Menu[] = [
     { name: "サポート", to: "/support" },
     { name: "投票サイト", to: "/links#投票サイト" },
+    { name: "開発ブログ(仮)", to: "/devlog" },
+    { name: "求人", to: "/recruit" },
     { name: "リンク", to: "/links" },
 ]
 
@@ -40,7 +42,5 @@ export const menus: Menu[] = [
     { name: "ルール", menu: rules, to: "/rules" },
     { name: "サーバー紹介", to: "/servers" },
     { name: "寄付", menu: donation, to: "/donation" },
-    { name: "開発ブログ(仮)", to: "/devlog" },
-    { name: "求人", to: "/recruit" },
     { name: "その他", menu: other, to: "#" },
 ]
