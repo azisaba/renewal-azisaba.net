@@ -46,11 +46,11 @@ header {
   height: 100%;
   /*justify-content: center;*/
   padding: 0;
-  margin: 0;
+  margin: 0 15px 0 0;
 }
 
 .menu {
-  margin-right: 15px;
+  margin-right: 18px;
 }
 
 </style>

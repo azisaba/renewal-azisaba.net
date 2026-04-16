@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { menus } from "~/menu.config"
 
-const MOBILE_BREAKPOINT_WINDOW_WIDTH = 850;
+const MOBILE_BREAKPOINT_WINDOW_WIDTH = 800;
 
 const is_open_mobile_menu = ref(false)
 const open_menu_name = ref<string | null>(null)
@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
 }
 
 
-@media (min-width: 851px) {
+@media (min-width: 801px) {
     .menu-container {
         display: block !important;
         height: 100%;
@@ -148,6 +148,7 @@ onBeforeUnmount(() => {
         color: aliceblue;
         height: 100%;
         z-index: 10;
+        padding: 0 4px;
     }
 
     .menu-link-wrapper {
@@ -157,7 +158,7 @@ onBeforeUnmount(() => {
         transition: background-color 0.2s;
     }
 
-    .menu-link-wrapper:hover {
+    .top-li:hover {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -165,7 +166,7 @@ onBeforeUnmount(() => {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 5px 0 10px;
+        padding: 0 5px 0 5px;
 
         height: 100%;
     }
@@ -173,7 +174,7 @@ onBeforeUnmount(() => {
     .toggle-icon {
         display: flex;
         align-items: center;
-        padding: 0 10px 0 5px;
+        padding: 0 5px 0 0;
         height: 100%;
     }
 
@@ -199,7 +200,7 @@ onBeforeUnmount(() => {
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
     .menu-container {
         display: none;
         position: fixed;
