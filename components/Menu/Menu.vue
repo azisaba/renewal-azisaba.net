@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-container">
+    <nav ref="nav_ref" class="nav-container">
         <div class="menu-container" :class="{ 'is-mobile-open': is_open_mobile_menu }">
             <ul class="top-ul">
                 <li v-for="top_menu in menus" :key="top_menu.name" class="top-li"
@@ -12,7 +12,7 @@
 
                         <button v-if="top_menu.menu" class="toggle-icon" type="button" aria-haspopup="true"
                             :aria-expanded="open_menu_name === top_menu.name" :aria-label="`${top_menu.name}のサブメニューを開閉`"
-                            @click.prevent="toggle_sub_menu(top_menu.name)">
+                            @click.prevent="toggle_open_second_menu(top_menu.name)">
                             <span class="arrow" :class="{ 'is-open': open_menu_name === top_menu.name }">▼</span>
                         </button>
                     </div>
@@ -33,15 +33,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import { menus } from "~/menu.config"
 
 const MOBILE_BREAKPOINT_WINDOW_WIDTH = 970;
 const is_open_mobile_menu = ref(false)
 const open_menu_name = ref<string | null>(null)
 
-const toggle_sub_menu = (menu_name: string) => {
+const nav_ref = ref<HTMLElement | null>(null)
+const route = useRoute()
+
+
+const toggle_open_second_menu = (menu_name: string) => {
     open_menu_name.value = open_menu_name.value === menu_name ? null : menu_name
+}
+
+const toggle_open_mobile_menu = () => {
+    is_open_mobile_menu.value = !is_open_mobile_menu.value
 }
 
 const on_mouse_enter = (menu_name: string) => {
@@ -56,14 +63,31 @@ const on_mouse_leave = () => {
     }
 }
 
-const toggle_open_mobile_menu = () => {
-    is_open_mobile_menu.value = !is_open_mobile_menu.value
-}
 
-watch(() => is_open_mobile_menu, (is_open) => {
+watch(() => route.fullPath, () => {
+    is_open_mobile_menu.value = false
+})
+
+watch(is_open_mobile_menu, (is_open) => {
     if (!is_open) {
         open_menu_name.value = null
     }
+})
+
+const handle_display_click = (event: MouseEvent) => {
+    if (is_open_mobile_menu.value && nav_ref.value) {
+        if (!nav_ref.value.contains(event.target as Node)) {
+            is_open_mobile_menu.value = false
+        }
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', handle_display_click)
+})
+
+onBeforeUnmount(() => {
+    document.removeEventListener('click', handle_display_click)
 })
 </script>
 
