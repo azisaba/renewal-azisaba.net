@@ -48,10 +48,27 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      watch: {
-        usePolling: true,
-      },
+    optimizeDeps: {
+      include: [
+        "@vueuse/core",
+        "clsx",
+        "reka-ui",
+        "tailwind-merge",
+        "@lucide/vue",
+        "class-variance-authority",
+      ],
+      exclude: [
+        "remark-gfm",
+        "remark-emoji",
+        "remark-mdc",
+        "remark-rehype",
+        "rehype-raw",
+        "parse5",
+        "unist-util-visit",
+        "unified",
+        "debug",
+        "extend",
+      ],
     },
   },
   mdc: {

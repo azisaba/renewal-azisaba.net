@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { t } = useI18n();
+const { t } = useI18n({ useScope: "global" });
 
 definePageMeta({
   layout: "play",
@@ -87,22 +87,31 @@ onMounted(() => {
 
         <AddressBox class="w-86" value="mc.azisaba.net" />
 
-        <i18n-t class="text-center whitespace-pre-line" keypath="pages.play.description" tag="p">
-          <NuxtLinkLocale
-            class="text-blue-500 transition-colors hover:text-blue-300"
-            target="_blank"
-            to="/rules"
-          >
-            {{ t("pages.play.links.rules") }}
-          </NuxtLinkLocale>
+        <i18n-t
+          class="text-center whitespace-pre-line"
+          keypath="pages.play.description"
+          scope="global"
+          tag="p"
+        >
+          <template #rules>
+            <NuxtLinkLocale
+              class="text-blue-500 transition-colors hover:text-blue-300"
+              target="_blank"
+              to="/rules"
+            >
+              {{ t("pages.play.links.rules") }}
+            </NuxtLinkLocale>
+          </template>
 
-          <NuxtLinkLocale
-            class="text-blue-500 transition-colors hover:text-blue-300"
-            target="_blank"
-            to="/addresses"
-          >
-            {{ t("pages.play.links.addresses") }}
-          </NuxtLinkLocale>
+          <template #addresses>
+            <NuxtLinkLocale
+              class="text-blue-500 transition-colors hover:text-blue-300"
+              target="_blank"
+              to="/addresses"
+            >
+              {{ t("pages.play.links.addresses") }}
+            </NuxtLinkLocale>
+          </template>
         </i18n-t>
       </div>
     </div>
