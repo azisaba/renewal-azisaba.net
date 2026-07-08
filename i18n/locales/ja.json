@@ -1,0 +1,183 @@
+{
+  "common": {
+    "clickToCopy": "クリックしてコピー",
+    "copied": "コピーしました！"
+  },
+  "components": {
+    "header": {
+      "title": "アジ鯖"
+    },
+    "footer": {
+      "copyright": "© 2017-{year} Azisaba Network. All rights reserved.",
+      "navigation": {
+        "legal": "法的情報",
+        "followUs": "アジ鯖をフォロー"
+      },
+      "links": {
+        "terms": "利用規約",
+        "privacyPolicy": "プライバシーポリシー",
+        "commercialTransactions": "特定商取引法に基づく表記",
+        "rules": "ルール一覧",
+        "github": "GitHub",
+        "twitter": "Twitter",
+        "youtube": "YouTube"
+      }
+    },
+    "tweetButton": "Twitterでシェア"
+  },
+  "pages": {
+    "home": {
+      "name": "アジ鯖公式サイト",
+      "title": "アジ鯖、たのしい。",
+      "playNow": "今すぐプレイ",
+      "sections": {
+        "about": {
+          "title": "アジ鯖について",
+          "body": "アジ鯖は2017年に日本で始まった歴史あるMinecraftの公開サーバーです。\nルールさえ守ることができれば、国籍や年齢を問わず、広く参加することができます。\nサービス開始以来、80,000人を超えるプレイヤーがプレイし、現在に至るまで多くの人に愛されています。"
+        },
+        "development": {
+          "title": "最高のエンジニア育成環境",
+          "body": "アジ鯖はゲームサーバーとしての側面と同時に、開発者コミュニティの機能を併せ持っています。"
+        },
+        "contribute": {
+          "title": "活動を支える",
+          "body": "素晴らしいユーザーコミュニティのもとにアジ鯖は成り立っています。\nアジ鯖を様々な方法で支えることができます。",
+          "donation": "寄付",
+          "recruit": "運営に参加する",
+          "oss": "オープンソースに貢献する"
+        }
+      }
+    },
+    "blog": {
+      "name": "ブログ",
+      "title": "ブログ記事の一覧",
+      "description": "アジ鯖のオウンドメディア",
+      "detail": {
+        "backToIndex": "記事一覧へ"
+      }
+    },
+    "donation": {
+      "name": "寄付",
+      "title": "アジ鯖に寄付する",
+      "description": "アジ鯖は皆様の寄付に支えられて運営されています。\nお支払いには、世界中のオンラインゲームで広く利用されている安全な決済プラットフォーム「Tebex」を採用しています。",
+      "sections": {
+        "doners": "いつもありがとうございます 愛をこめて"
+      },
+      "links": {
+        "tebex": "Tebexへ (外部サイト)",
+        "note": "寄付に際しての注意事項",
+        "commercialTransactions": "特定商取引法に基づく記載"
+      },
+      "detail": {
+        "backToIndex": "寄付のトップページに戻る"
+      }
+    },
+    "recruits": {
+      "name": "採用",
+      "title": "「アジ鯖で何をしたいのか」が出発点です",
+      "description": "アジ鯖は日本最大級のMinecraftサーバーとして、日本一の運営組織規模を誇ります。\nこの巨大なネットワークでは、毎日あちこちで大小さまざまなイノベーションが起こります。\n私たち常に広く門を開いています。",
+      "filter": "タグで募集を絞り込む",
+      "steps": {
+        "agreeToOperatingTermsAndConditions": {
+          "title": "必要な規約に同意する",
+          "description": "運営登用規約を読み、応募する資格を満たしているかを確認します。"
+        },
+        "selectRecruitmentToApply": {
+          "title": "応募する求人募集を決める",
+          "description": "一覧からあなたに合うものを選び、「募集ID」をコピーします。"
+        },
+        "submitGoogleForm": {
+          "title": "Googleフォームを送信する",
+          "description": "応募用のGoogleフォームに「募集ID」とその他必要な項目を入力します。"
+        }
+      },
+      "links": {
+        "about": "アジ鯖の採用活動について知る",
+        "operatingTermsAndConditions": "運営登用規約",
+        "googleForm": "応募用のGoogleフォーム"
+      },
+      "about": {
+        "name": "採用活動について",
+        "title": "採用情報",
+        "description": "アジ鯖は、選考や、採用後の人事評価が公正かつオープンであることを重視し、採用活動の情報を開示しています。",
+        "backToIndex": "募集一覧へ"
+      },
+      "detail": {
+        "backToIndex": "他の募集も見る",
+        "recruitId": "募集ID"
+      }
+    },
+    "rules": {
+      "name": "ルール",
+      "title": "ルール一覧",
+      "description": "アジ鯖の利用規約やルールの一覧です。参加される前に、必ずご確認ください。",
+      "sections": {
+        "general": "全体",
+        "minecraft": "Minecraftサーバー",
+        "discord": "Discordサーバー",
+        "guideline": "ガイドライン",
+        "other": "その他"
+      },
+      "links": {
+        "privacyPolicy": "プライバシーポリシー"
+      },
+      "slug": {
+        "lastUpdated": "最終更新：{date}"
+      }
+    },
+    "servers": {
+      "name": "サーバー",
+      "title": "サーバーリスト",
+      "description": "アジ鯖では複数のサーバーが提供されています。同じアジ鯖にいながら、さまざまな魅力的な遊びを楽しめます。",
+      "sections": {
+        "available": "公開中のサーバー",
+        "inDevelopment": "開発中のサーバー",
+        "closed": "サービスを終了したサーバー"
+      },
+      "detail": {
+        "backToIndex": "サーバー一覧へ",
+        "status": {
+          "available": "公開中",
+          "inDevelopment": "開発中",
+          "closed": "サービス終了"
+        }
+      }
+    },
+    "support": {
+      "name": "サポート",
+      "title": "サポート",
+      "description": "お困りですか？おまかせください。",
+      "suggestions": {
+        "bugReport": {
+          "title": "バグを報告する",
+          "description": "不具合を発見しましたか？公式Discordサーバーのサポートか、返信が不要な方は下記のフォームからご報告いただけます。"
+        },
+        "punishmentAppeal": {
+          "title": "誤った処罰の解除を申請する",
+          "description": "誤った処罰を受けている場合は、公式Discordサーバーのサポート、または下記のフォームから解除を申請することができます。"
+        },
+        "contact": {
+          "title": "個別に問い合わせる",
+          "description": "「よくある質問」でご不明な点が解決しない場合には、公式Discordサーバーのサポートにてご案内いたします。"
+        }
+      },
+      "sections": {
+        "faq": "よくある質問"
+      },
+      "links": {
+        "officialDiscord": "公式Discordサーバー",
+        "bugReportForm": "バグ報告フォーム",
+        "punishmentAppealForm": "誤処罰の解除申請フォーム"
+      }
+    },
+    "play": {
+      "name": "今すぐプレイ",
+      "title": "可能性は無限大だ。",
+      "description": "初めてプレイされる方は{0}をご確認ください。\n接続に使用できるアドレスの一覧は{1}でご覧いただけます。",
+      "links": {
+        "rules": "ルール",
+        "addresses": "こちら"
+      }
+    }
+  }
+}

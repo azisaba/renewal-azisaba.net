@@ -1,57 +1,66 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 
 export default defineContentConfig({
   collections: {
     content: defineCollection({
-      type: 'page',
-      source: '**/*.md',
+      type: "page",
+      source: "**/*.md",
       schema: z.object({
         title: z.string(),
       }),
     }),
-    news: defineCollection({
+    article: defineCollection({
       type: "page",
-      source: "news/*.md",
-      // スキーマ定義
+      source: "articles/*.md",
       schema: z.object({
         title: z.string(),
-        description: z.string(),
-        tags: z.array(z.string()).default([]),
-        image: z.string().nullable(),
-        image_cover: z.boolean().default(true),
-        published: z.boolean(),
-        date: z.date().nullable(),
-      })
-    }),
-    devlog: defineCollection({
-      type: "page",
-      source: "devlog/*.md",
-      // スキーマ定義
-      schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        author: z.string().nullable(),
-        tags: z.array(z.string()).default([]),
-        image: z.string().nullable(),
-        image_cover: z.boolean().default(true),
-        published: z.boolean(),
-        date: z.date().nullable(),
-      })
+        summary: z.string(),
+        date: z.date(),
+        published: z.boolean().default(true),
+        thumbnail: z.string(),
+      }),
     }),
     recruit: defineCollection({
       type: "page",
-      source: "recruit/*.md",
-      // スキーマ定義
+      source: "recruits/*.md",
+      schema: z.object({
+        recruitId: z.string(),
+        title: z.string(),
+        summary: z.string(),
+        date: z.date(),
+        published: z.boolean().default(true),
+        thumbnail: z.string(),
+        tags: z.string().array(),
+      }),
+    }),
+    rule: defineCollection({
+      type: "page",
+      source: "rules/*.md",
       schema: z.object({
         title: z.string(),
-        server: z.string().nullable(),
-        description: z.string().nullable(),
-        tags: z.array(z.string()).default([]),
-        image: z.string().nullable(),
-        image_cover: z.boolean().default(true),
-        published: z.boolean(),
-        recruit_id: z.string().nullable(),
-      })
+        category: z.enum(["general", "minecraft", "discord", "guideline", "other"]),
+        lastUpdated: z.date(),
+      }),
     }),
-  }
-})
+    server: defineCollection({
+      type: "page",
+      source: "servers/*.md",
+      schema: z.object({
+        title: z.string(),
+        summary: z.string(),
+        status: z.enum(["available", "inDevelopment", "closed"]),
+        iconSrc: z.string().nullable(),
+        supportedVersion: z.string().array(),
+      }),
+    }),
+    faq: defineCollection({
+      type: "data",
+      source: "faqs/*.yaml",
+      schema: z.object({
+        category: z.enum(["support", "recruitment"]),
+        question: z.string(),
+        answer: z.string(),
+      }),
+    }),
+  },
+});
