@@ -66,7 +66,7 @@ useHead({
 
   <Section>
     <SectionTitle>最近のお知らせ</SectionTitle>
-    <News />
+    <Feed />
   </Section>
 </template>
 
