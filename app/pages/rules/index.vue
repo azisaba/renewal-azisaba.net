@@ -25,15 +25,31 @@ useHead({
   link: [{ rel: "canonical", href: seo.canonical }],
 });
 
-const { data: rules } = await useAsyncData("rules", () => queryCollection("rule").all(), {
-  default: () => [],
-});
-
-const generalRules = computed(() => rules.value.filter((rule) => rule.category === "general"));
-const minecraftRules = computed(() => rules.value.filter((rule) => rule.category === "minecraft"));
-const discordRules = computed(() => rules.value.filter((rule) => rule.category === "discord"));
-const guidelineRules = computed(() => rules.value.filter((rule) => rule.category === "guideline"));
-const otherRules = computed(() => rules.value.filter((rule) => rule.category === "other"));
+const { data: generalRules } = await useAsyncData(
+  "generalRules",
+  () => queryCollection("rule").where("category", "=", "general").all(),
+  { default: () => [] },
+);
+const { data: minecraftRules } = await useAsyncData(
+  "minecraftRules",
+  () => queryCollection("rule").where("category", "=", "minecraft").all(),
+  { default: () => [] },
+);
+const { data: discordRules } = await useAsyncData(
+  "discordRules",
+  () => queryCollection("rule").where("category", "=", "discord").all(),
+  { default: () => [] },
+);
+const { data: guidelineRules } = await useAsyncData(
+  "guidelineRules",
+  () => queryCollection("rule").where("category", "=", "guideline").all(),
+  { default: () => [] },
+);
+const { data: otherRules } = await useAsyncData(
+  "otherRules",
+  () => queryCollection("rule").where("category", "=", "other").all(),
+  { default: () => [] },
+);
 </script>
 
 <template>

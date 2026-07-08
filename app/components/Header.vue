@@ -27,7 +27,9 @@ defineProps<{
       </div>
 
       <div class="md:hidden">
-        <HeaderSheet />
+        <ClientOnly>
+          <HeaderSheet />
+        </ClientOnly>
       </div>
     </div>
   </header>
