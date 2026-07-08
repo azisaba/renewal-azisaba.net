@@ -34,9 +34,13 @@ useHead({
 
     <div class="absolute inset-0 bg-black/10" />
 
-    <div class="absolute inset-0 flex items-center justify-center px-4 text-center">
-      <div class="relative z-10 flex flex-col items-center justify-center gap-4 px-8 py-6">
-        <h1 class="hero-title font-decorative text-5xl font-bold text-white">
+    <div class="absolute inset-0 flex items-center justify-center px-4 text-center sm:px-6">
+      <div
+        class="relative z-10 flex w-full max-w-xl flex-col items-center justify-center gap-4 px-4 py-6 sm:px-8"
+      >
+        <h1
+          class="hero-title font-decorative text-4xl font-bold wrap-break-word text-white sm:text-5xl"
+        >
           {{ t("pages.home.title") }}
         </h1>
 
@@ -46,7 +50,7 @@ useHead({
           </Button>
         </NuxtLink>
 
-        <div class="flex items-center gap-8">
+        <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-8">
           <NuxtLink rel="noopener noreferrer" to="https://www.youtube.com/AzisabaNetwork">
             <i class="bi bi-youtube text-5xl text-[#ff0033]" />
           </NuxtLink>

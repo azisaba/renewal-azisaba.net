@@ -32,6 +32,12 @@ function closeSheet() {
       <nav class="mt-2 p-4">
         <ul class="flex flex-col gap-6">
           <li>
+            <NuxtLink class="flex items-center gap-3 text-slate-800" @click="closeSheet" to="/">
+              <span class="bg-azisaba w-2 shrink-0 self-stretch" />
+              {{ t("components.header.home") }}
+            </NuxtLink>
+          </li>
+          <li>
             <NuxtLink
               class="flex items-center gap-3 text-slate-800"
               @click="closeSheet"
@@ -85,6 +91,12 @@ function closeSheet() {
             >
               <span class="bg-azisaba w-2 shrink-0 self-stretch" />
               {{ t("pages.support.name") }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="flex items-center gap-3 text-slate-800" @click="closeSheet" to="/play">
+              <span class="bg-azisaba w-2 shrink-0 self-stretch" />
+              {{ t("pages.play.name") }}
             </NuxtLink>
           </li>
         </ul>

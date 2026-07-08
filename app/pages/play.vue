@@ -81,11 +81,13 @@ onMounted(() => {
       />
     </div>
 
-    <div class="relative flex min-h-screen items-center justify-center">
-      <div class="flex flex-col items-center gap-12">
-        <h1 class="text-6xl">{{ t("pages.play.title") }}</h1>
+    <div class="relative flex min-h-screen items-center justify-center px-4 text-center">
+      <div class="flex w-full max-w-lg flex-col items-center gap-12">
+        <h1 class="text-center text-5xl sm:text-6xl">
+          {{ t("pages.play.title") }}
+        </h1>
 
-        <AddressBox class="w-86" value="mc.azisaba.net" />
+        <AddressBox class="w-full max-w-86" value="mc.azisaba.net" />
 
         <i18n-t
           class="text-center whitespace-pre-line"
@@ -123,6 +125,8 @@ onMounted(() => {
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   animation-iteration-count: infinite;
   animation-name: warp;
+  --x: 0;
+  --y: 0;
 }
 
 @keyframes warp {

@@ -5,7 +5,8 @@
   },
   "components": {
     "header": {
-      "title": "アジ鯖"
+      "title": "アジ鯖",
+      "home": "ホーム"
     },
     "footer": {
       "copyright": "© 2017-{year} Azisaba Network. All rights reserved.",

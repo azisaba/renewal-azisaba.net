@@ -67,9 +67,9 @@ const filteredRecruits = computed(() => {
 
       <p class="whitespace-pre-line">{{ t("pages.recruits.description") }}</p>
 
-      <Stepper>
-        <StepperItem :step="1">
-          <StepperTrigger>
+      <Stepper class="flex flex-col gap-4 md:flex-row md:gap-0">
+        <StepperItem class="relative flex-1" :step="1">
+          <StepperTrigger class="items-start gap-3 text-left md:items-center md:text-center">
             <StepperIndicator class="bg-muted">1</StepperIndicator>
             <StepperTitle>
               {{ t("pages.recruits.steps.agreeToOperatingTermsAndConditions.title") }}
@@ -81,8 +81,8 @@ const filteredRecruits = computed(() => {
           <StepperSeparator />
         </StepperItem>
 
-        <StepperItem :step="2">
-          <StepperTrigger>
+        <StepperItem class="relative flex-1" :step="2">
+          <StepperTrigger class="items-start gap-3 text-left md:items-center md:text-center">
             <StepperIndicator class="bg-muted">2</StepperIndicator>
             <StepperTitle>
               {{ t("pages.recruits.steps.selectRecruitmentToApply.title") }}
@@ -94,8 +94,8 @@ const filteredRecruits = computed(() => {
           <StepperSeparator />
         </StepperItem>
 
-        <StepperItem :step="3">
-          <StepperTrigger>
+        <StepperItem class="relative flex-1" :step="3">
+          <StepperTrigger class="items-start gap-3 text-left md:items-center md:text-center">
             <StepperIndicator class="bg-muted">3</StepperIndicator>
             <StepperTitle>
               {{ t("pages.recruits.steps.submitGoogleForm.title") }}

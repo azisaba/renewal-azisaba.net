@@ -115,6 +115,7 @@ export default defineNuxtConfig({
     "/devlog/20250705-1": { redirect: "/blog/20250705-2" },
     "/devlog/20250705-2": { redirect: "/blog/20250705-3" },
     "/devlog/20250705-3": { redirect: "/blog/20250705-4" },
+    "/recruit/**": { redirect: "/recruits/**" },
   },
   ssr: true,
 });

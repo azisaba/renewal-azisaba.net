@@ -11,8 +11,8 @@ const { d } = useI18n();
 </script>
 
 <template>
-  <NuxtLink class="group block" :to="`/blog/${value.path.split('/').pop()}`">
-    <div class="flex items-center gap-2 px-2 py-4">
+  <NuxtLink class="group block min-w-0" :to="`/blog/${value.path.split('/').pop()}`">
+    <article class="flex min-w-0 flex-col gap-3 px-2 py-4 sm:flex-row sm:items-center">
       <div class="relative aspect-video w-full shrink-0 overflow-hidden sm:w-72">
         <NuxtImg
           class="h-full w-full object-cover object-center"
@@ -25,12 +25,20 @@ const { d } = useI18n();
         />
       </div>
 
-      <div class="px-4 py-2">
-        <p class="text-azisaba font-mono text-xl">{{ d(new Date(value.date)) }}</p>
-        <h2 class="font-display text-2xl font-bold">{{ value.title }}</h2>
-        <p class="mt-2 text-slate-500">{{ value.summary }}</p>
+      <div class="min-w-0 px-1 py-2 sm:px-4">
+        <p class="text-azisaba font-mono text-xl">
+          {{ d(new Date(value.date)) }}
+        </p>
+
+        <h2 class="font-display text-2xl font-bold wrap-break-word">
+          {{ value.title }}
+        </h2>
+
+        <p class="mt-2 wrap-break-word text-slate-500">
+          {{ value.summary }}
+        </p>
       </div>
-    </div>
+    </article>
   </NuxtLink>
 </template>
 
