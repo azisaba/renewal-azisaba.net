@@ -116,6 +116,9 @@ export default defineNuxtConfig({
     "/devlog/20250705-2": { redirect: "/blog/20250705-3" },
     "/devlog/20250705-3": { redirect: "/blog/20250705-4" },
     "/recruit/**": { redirect: "/recruits/**" },
+    "/recruit/help-selection": { redirect: "/recruits/about" },
+    "/recruit/help-after-acceptance": { redirect: "/recruits/about" },
+    "/recruit/help-about-staff-team": { redirect: "/recruits/about" },
   },
   ssr: true,
 });

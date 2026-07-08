@@ -27,9 +27,13 @@ useHead({
   link: [{ rel: "canonical", href: seo.canonical }],
 });
 
-const { data: faqs } = await useAsyncData("faqs", () => queryCollection("faq").all(), {
-  default: () => [],
-});
+const { data: faqs } = await useAsyncData(
+  "support-faqs",
+  () => queryCollection("faq").where("category", "=", "support").all(),
+  {
+    default: () => [],
+  },
+);
 </script>
 
 <template>
