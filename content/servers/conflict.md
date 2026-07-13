@@ -1,5 +1,7 @@
 ---
 title: Conflict
+summary: カジュアル銃FPSゲーム
+status: closed
 ---
 
 ![](https://i.azisaba.net/albums/conflict/2023-01-28_21.46.56.png)

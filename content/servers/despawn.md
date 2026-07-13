@@ -1,5 +1,7 @@
 ---
 title: Despawn
+summary: オープンワールドのMMOサーバー
+status: closed
 ---
 
 <div style="text-align: center">

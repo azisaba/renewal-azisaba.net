@@ -1,5 +1,7 @@
 ---
 title: Phantasy Gate
+summary: カジノとギャンブル
+status: closed
 ---
 
 <div style="text-align: center">

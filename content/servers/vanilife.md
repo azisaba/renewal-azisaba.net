@@ -1,5 +1,7 @@
 ---
 title: ばにらいふ！
+summary: バニラのサバイバルが楽しめる生活鯖
+status: closed
 ---
 
 <div style="text-align: center">

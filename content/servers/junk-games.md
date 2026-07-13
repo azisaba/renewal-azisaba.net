@@ -1,5 +1,7 @@
 ---
 title: Junk Games
+summary: ジャンクなミニゲーム集
+status: inDevelopment
 ---
 
 **Junk**なMini**Game**が集まるサーバー。それが**Junk Games**。
