@@ -22,12 +22,6 @@ export default defineNuxtConfig({
     graphApiKey: "",
     tebexSecret: "",
   },
-  nitro: {
-    preset: "cloudflare_pages",
-  },
-  image: {
-    provider: "none",
-  },
   app: {
     head: {
       title: "アジ鯖公式サイト",
