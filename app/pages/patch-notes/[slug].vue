@@ -65,7 +65,7 @@ useHead({
 </script>
 
 <template>
-  <Hero height="compact">
+  <Hero height="compact" v-if="patchNote">
     <HeroContent>
       <template #title>
         {{ patchNote.title }}
@@ -92,7 +92,7 @@ useHead({
     </HeroContent>
   </Hero>
 
-  <Section>
+  <Section v-if="patchNote">
     <article>
       <p class="mb-4 flex items-center gap-2 font-mono text-2xl" v-if="author">
         <NuxtImg
