@@ -19,7 +19,8 @@
   "components": {
     "header": {
       "title": "アジ鯖",
-      "home": "ホーム"
+      "home": "ホーム",
+      "news": "お知らせ"
     },
     "footer": {
       "copyright": "© 2017-{year} Azisaba Network. All rights reserved.",

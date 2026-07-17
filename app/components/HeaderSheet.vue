@@ -67,6 +67,16 @@ function closeSheet() {
             <NuxtLink
               class="flex items-center gap-3 text-slate-800"
               @click="closeSheet"
+              to="/patch-notes"
+            >
+              <span class="bg-azisaba w-2 shrink-0 self-stretch" />
+              {{ t("pages.patchNotes.name") }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              class="flex items-center gap-3 text-slate-800"
+              @click="closeSheet"
               to="/recruits"
             >
               <span class="bg-azisaba w-2 shrink-0 self-stretch" />

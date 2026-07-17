@@ -22,11 +22,11 @@ defineProps<{
         </div>
       </NuxtLink>
 
-      <div class="hidden md:block">
+      <div class="hidden min-[1100px]:block">
         <HeaderNavigationMenu />
       </div>
 
-      <div class="md:hidden">
+      <div class="min-[1100px]:hidden">
         <ClientOnly>
           <HeaderSheet />
         </ClientOnly>

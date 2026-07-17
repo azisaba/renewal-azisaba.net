@@ -70,11 +70,31 @@ const { data: rules } = await useAsyncData("rules", async () => {
       </NavigationMenuItem>
 
       <NavigationMenuItem>
-        <NavigationMenuLink as-child>
-          <NuxtLink to="/blog">
-            {{ t("pages.blog.name") }}
-          </NuxtLink>
-        </NavigationMenuLink>
+        <NavigationMenuTrigger>
+          {{ t("components.header.news") }}
+        </NavigationMenuTrigger>
+
+        <NavigationMenuContent>
+          <div class="grid w-72 gap-1">
+            <NuxtLink
+              class="rounded-md p-3 transition-colors hover:bg-zinc-300 focus-visible:bg-zinc-300 focus-visible:outline-none"
+              to="/blog"
+            >
+              <p class="font-heading font-bold">{{ t("pages.blog.name") }}</p>
+              <p class="mt-1 text-sm text-slate-600">{{ t("pages.blog.description") }}</p>
+            </NuxtLink>
+
+            <NuxtLink
+              class="rounded-md p-3 transition-colors hover:bg-zinc-300 focus-visible:bg-zinc-300 focus-visible:outline-none"
+              to="/patch-notes"
+            >
+              <p class="font-heading font-bold">{{ t("pages.patchNotes.name") }}</p>
+              <p class="mt-1 text-sm text-slate-600">
+                {{ t("pages.patchNotes.description") }}
+              </p>
+            </NuxtLink>
+          </div>
+        </NavigationMenuContent>
       </NavigationMenuItem>
 
       <NavigationMenuItem>

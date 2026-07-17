@@ -133,13 +133,13 @@ const showPage = async (page: number) => {
 </script>
 
 <template>
-  <Table class="min-w-3xl table-fixed">
+  <Table class="min-w-[36rem] table-fixed sm:min-w-3xl">
     <TableHeader>
       <TableRow>
-        <TableHead class="w-1/2">タイトル</TableHead>
-        <TableHead class="w-1/5">サーバー</TableHead>
-        <TableHead class="w-[18%]">カテゴリ</TableHead>
-        <TableHead class="w-[12%]">日時</TableHead>
+        <TableHead class="w-[42%] sm:w-1/2">タイトル</TableHead>
+        <TableHead class="w-[21%] sm:w-1/5">サーバー</TableHead>
+        <TableHead class="w-[22%] sm:w-[18%]">カテゴリ</TableHead>
+        <TableHead class="w-[15%] sm:w-[12%]">日時</TableHead>
       </TableRow>
     </TableHeader>
 
