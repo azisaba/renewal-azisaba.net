@@ -23,7 +23,6 @@ const pageSize = 20;
 const props = defineProps<{
   target?: PatchNoteTarget;
   category?: PatchNoteCategory;
-  server?: boolean;
 }>();
 
 const { locale } = useI18n();
@@ -35,29 +34,28 @@ const formatRelativeTime = (date: Date | string) =>
     relativeTimeFormatOptions: { numeric: "always" },
   });
 
-const { data: initialPatchNotes } = await useFetch<ListPatchNotes200Response>("/api/patch-notes", {
-  server: props.server ?? true,
-  query: {
-    limit: pageSize,
-    target: props.target,
-    category: props.category,
-  },
-});
-
 const emptyPage: ListPatchNotes200Response = {
   items: [],
   nextCursor: null,
 };
 
-const initialPage = computed(() => initialPatchNotes.value ?? emptyPage);
-if (!initialPatchNotes.value && (props.server ?? true)) {
-  throw createError({
-    statusCode: 500,
-    statusMessage: "Failed to load patch notes",
-  });
-}
+const { data: initialPatchNotes } = await useAsyncData(
+  () => `patch-notes-${props.target ?? "all"}-${props.category ?? "all"}`,
+  () =>
+    $fetch<ListPatchNotes200Response>("/api/patch-notes", {
+      query: {
+        limit: pageSize,
+        target: props.target,
+        category: props.category,
+      },
+    }),
+  {
+    default: () => emptyPage,
+    watch: [() => props.target, () => props.category],
+  },
+);
 
-const pages = ref<ListPatchNotes200Response[]>([initialPage.value]);
+const pages = ref<ListPatchNotes200Response[]>([initialPatchNotes.value ?? emptyPage]);
 const currentPageIndex = ref(0);
 const isLoading = ref(false);
 let requestVersion = 0;
@@ -69,8 +67,8 @@ watch(initialPatchNotes, (value) => {
   }
 });
 
-const getLastPage = () => pages.value.at(-1) ?? initialPage.value;
-const patchNotes = computed(() => pages.value[currentPageIndex.value] ?? initialPage.value);
+const getLastPage = () => pages.value.at(-1) ?? emptyPage;
+const patchNotes = computed(() => pages.value[currentPageIndex.value] ?? emptyPage);
 const currentPage = computed(() => currentPageIndex.value + 1);
 const paginationTotal = computed(() => {
   const lastPage = getLastPage();

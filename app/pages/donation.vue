@@ -29,7 +29,6 @@ useHead({
 });
 
 const { data: doners } = await useFetch("/api/doners", {
-  server: !import.meta.prerender,
   default: () => [],
 });
 </script>

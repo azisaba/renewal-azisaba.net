@@ -4,35 +4,32 @@ const { t, d } = useI18n();
 const route = useRoute();
 const slug = route.params.slug as string;
 
-const shouldFetchOnServer = !import.meta.prerender;
+const { data: patchNote, error: patchNoteError } = await useAsyncData(
+  `patch-note-${slug}`,
+  () => $fetch(`/api/patch-notes/${slug}`),
+  {
+    default: () => null,
+  },
+);
 
-const { data: patchNote, error } = await useFetch(`/api/patch-notes/${slug}`, {
-  server: shouldFetchOnServer,
-  default: () => null,
-});
-
-if (shouldFetchOnServer && error.value) {
-  throw error.value;
+if (patchNoteError.value) {
+  throw patchNoteError.value;
 }
 
-if (shouldFetchOnServer && !patchNote.value) {
+if (!patchNote.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",
   });
 }
 
-watchEffect(() => {
-  if (!shouldFetchOnServer && error.value) {
-    showError(error.value);
-  }
-});
-
-const authorId = computed(() => patchNote.value?.authorId);
-const { data: author } = await useFetch(
-  () => (authorId.value ? `/api/players/${authorId.value}` : null),
+const { data: author } = await useAsyncData(
+  `patch-note-author-${patchNote.value.authorId ?? "none"}`,
+  () =>
+    patchNote.value?.authorId
+      ? $fetch(`/api/players/${patchNote.value.authorId}`)
+      : Promise.resolve(null),
   {
-    server: shouldFetchOnServer,
     default: () => null,
   },
 );
@@ -68,7 +65,7 @@ useHead({
 </script>
 
 <template>
-  <Hero height="compact" v-if="patchNote">
+  <Hero height="compact">
     <HeroContent>
       <template #title>
         {{ patchNote.title }}
@@ -95,17 +92,7 @@ useHead({
     </HeroContent>
   </Hero>
 
-  <Hero height="compact" v-else>
-    <HeroContent>
-      <template #title>
-        {{ t("pages.patchNotes.name") }}
-      </template>
-
-      <p>{{ t("pages.patchNotes.description") }}</p>
-    </HeroContent>
-  </Hero>
-
-  <Section v-if="patchNote">
+  <Section>
     <article>
       <p class="mb-4 flex items-center gap-2 font-mono text-2xl" v-if="author">
         <NuxtImg
@@ -120,10 +107,6 @@ useHead({
 
       <PatchNoteImageGallery :image-urls="patchNote.imageUrls" :title="patchNote.title" />
     </article>
-  </Section>
-
-  <Section v-else>
-    <p class="text-slate-500">読み込み中...</p>
   </Section>
 </template>
 

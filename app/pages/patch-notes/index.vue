@@ -55,8 +55,6 @@ const selectedCategory = computed(
       categoryValues.includes(value as PatchNoteCategoryType),
     ) as PatchNoteCategoryType | undefined,
 );
-
-const shouldFetchOnServer = !import.meta.prerender;
 </script>
 
 <template>
@@ -83,7 +81,6 @@ const shouldFetchOnServer = !import.meta.prerender;
     <PatchNoteTable
       :category="selectedCategory"
       :target="selectedTarget"
-      :server="shouldFetchOnServer"
     />
   </Section>
 </template>
