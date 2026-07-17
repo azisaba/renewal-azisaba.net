@@ -13,6 +13,11 @@ if (!patchNote.value) {
   });
 }
 
+const authorId = patchNote.value.authorId;
+const { data: author } = authorId
+  ? await useFetch(`/api/players/${authorId}`)
+  : { data: ref(null) };
+
 const seo = useAzisabaSeo();
 const title = seo.title(computed(() => patchNote.value?.title));
 const description = seo.description(computed(() => patchNote.value?.body.slice(0, 160)));
@@ -71,6 +76,15 @@ useHead({
 
   <Section v-if="patchNote">
     <article>
+      <p class="mb-4 flex items-center gap-2 font-mono text-2xl" v-if="author">
+        <NuxtImg
+          class="size-8 [image-rendering:pixelated]"
+          :alt="`${author.username}'s avatar`"
+          :src="`https://api.mineatar.io/face/${author.id}`"
+        />
+        {{ author.username }}
+      </p>
+
       <p class="text-base leading-8 whitespace-pre-wrap text-slate-700">{{ patchNote.body }}</p>
 
       <PatchNoteImageGallery :image-urls="patchNote.imageUrls" :title="patchNote.title" />

@@ -5,13 +5,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/color-mode",
     "@nuxt/content",
     "@nuxt/fonts",
     "@nuxt/image",
     "@nuxtjs/mdc",
-    "shadcn-nuxt",
     "@nuxtjs/i18n",
+    "@nuxtjs/color-mode",
+    "shadcn-nuxt",
   ],
   css: [
     "bootstrap-icons/font/bootstrap-icons.css",
@@ -81,6 +81,10 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    "/": { prerender: false },
+    "/donation": { prerender: false },
+    "/patch-notes": { prerender: false },
+    "/patch-notes/**": { prerender: false },
     "/terms": { redirect: "/rules/terms" },
     "/minecraft-server-policy": { redirect: "/rules/minecraft-server-policy" },
     "/minecraft-all-srv-rule": { redirect: "/rules/global-server-rules" },
