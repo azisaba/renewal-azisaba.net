@@ -80,10 +80,6 @@ const { data: news } = await useAsyncData(
     default: () => [],
   },
 );
-
-onMounted(() => {
-  void refreshNuxtData("feed");
-});
 </script>
 
 <template>

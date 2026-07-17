@@ -61,7 +61,6 @@ const initialDataKey = `patch-notes-${props.target ?? "all"}-${props.category ??
 const { data: initialPatchNotes } = await useAsyncData(initialDataKey, () => fetchPatchNotes(), {
   server: false,
   default: createEmptyPage,
-  getCachedData: () => undefined,
 });
 
 const pages = ref<ListPatchNotes200Response[]>([initialPatchNotes.value ?? createEmptyPage()]);
