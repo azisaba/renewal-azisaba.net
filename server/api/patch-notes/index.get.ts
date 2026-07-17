@@ -2,5 +2,10 @@ import type { ListPatchNotesRequest, ListPatchNotesResponse } from "@azisaba/gra
 
 export default defineEventHandler(async (event): Promise<ListPatchNotesResponse> => {
   const request = getQuery(event) as ListPatchNotesRequest;
-  return await patchNotesApi.listPatchNotes(request);
+  try {
+    return await patchNotesApi.listPatchNotes(request);
+  } catch (error) {
+    console.error("listPatchNotes failed", error);
+    throw error;
+  }
 });
