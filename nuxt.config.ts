@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     "@/assets/styles/global.css",
     "@/assets/styles/markdown.css",
   ],
+  runtimeConfig: {
+    graphApiKey: "",
+    tebexSecret: "",
+  },
   app: {
     head: {
       title: "アジ鯖公式サイト",
@@ -75,9 +79,6 @@ export default defineNuxtConfig({
     remarkPlugins: {
       "remark-breaks": {},
     },
-  },
-  runtimeConfig: {
-    tebexSecret: "",
   },
   routeRules: {
     "/terms": { redirect: "/rules/terms" },

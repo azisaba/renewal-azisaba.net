@@ -44,7 +44,7 @@ const { data: articles } = await useAsyncData(
       </template>
       <p>{{ t("pages.blog.description") }}</p>
     </HeroContent>
-    <HeroFloatingImage src="/images/heroes/news.png" />
+    <HeroFloatingImage src="/images/heroes/blog.png" />
   </Hero>
 
   <Section>

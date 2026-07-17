@@ -49,8 +49,10 @@ useHead({
       <template #title>
         {{ page.title }}
       </template>
+
       <p class="font-mono text-lg text-shadow-slate-400">{{ d(page.date) }}</p>
-      <div class="flex items-center gap-4">
+
+      <div class="flex flex-wrap items-center gap-4">
         <BackToIndexButton to="/blog">{{ t("pages.blog.detail.backToIndex") }}</BackToIndexButton>
         <TweetButton />
       </div>

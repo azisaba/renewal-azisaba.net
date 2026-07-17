@@ -128,6 +128,13 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+img.emoji {
+  vertical-align: -0.1em;
+  margin: 0 0.05em 0 0.1em;
+  width: 1em;
+  height: 1em;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

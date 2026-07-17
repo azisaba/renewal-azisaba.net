@@ -10,13 +10,14 @@ type Payment = {
 
 type Player = Payment["player"];
 
+const TEBEX_SECRET = useRuntimeConfig().tebexSecret;
+const LIMIT = 50;
+
 export default defineCachedEventHandler(
   async (): Promise<Player[]> => {
-    const config = useRuntimeConfig();
-
-    const payments = await $fetch<Payment[]>("https://plugin.tebex.io/payments?limit=50", {
+    const payments = await $fetch<Payment[]>(`https://plugin.tebex.io/payments?limit=${LIMIT}`, {
       headers: {
-        "X-Tebex-Secret": config.tebexSecret,
+        "X-Tebex-Secret": TEBEX_SECRET,
       },
     });
 
@@ -40,6 +41,6 @@ export default defineCachedEventHandler(
       .map(({ totalAmount: _totalAmount, ...player }) => player);
   },
   {
-    maxAge: 60 * 10,
+    maxAge: 60 * 15,
   },
 );

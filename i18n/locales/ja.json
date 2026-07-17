@@ -1,7 +1,20 @@
 {
   "common": {
     "clickToCopy": "クリックしてコピー",
-    "copied": "コピーしました！"
+    "copied": "コピーしました！",
+    "patchNoteCategory": {
+      "balance": "🔧 バランス",
+      "feature": "✨ 新機能",
+      "fix": "🐛 バグ修正",
+      "improvement": "📈 改善"
+    },
+    "patchNoteTarget": {
+      "creativePro": "クリエイティブPro",
+      "frontier": "フロンティア",
+      "life": "Life",
+      "leonGunWar2": "Leon Gun War 2",
+      "sclat": "Sclat"
+    }
   },
   "components": {
     "header": {
@@ -37,6 +50,9 @@
         "label": "ルール",
         "title": "「{title}」を改正しました。",
         "description": "ルールの内容が更新されました。"
+      },
+      "patchNote": {
+        "label": "パッチノート"
       }
     },
     "tweetButton": "Twitterでシェア"
@@ -56,6 +72,16 @@
       "description": "アジ鯖のオウンドメディア",
       "detail": {
         "backToIndex": "記事一覧へ"
+      }
+    },
+    "patchNotes": {
+      "name": "パッチノート",
+      "title": "パッチノート",
+      "description": "各サーバーのアップデートや修正内容をお知らせします。",
+      "filter": "サーバーとカテゴリで絞り込む",
+      "detail": {
+        "backToIndex": "パッチノート一覧へ",
+        "imageAlt": "添付画像 {number}"
       }
     },
     "donation": {

@@ -2,24 +2,50 @@
 import { ChevronDown, X } from "@lucide/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/popover";
 
-const props = defineProps<{
-  options: string[];
-  placeholder?: string;
-}>();
+type TagPickerOption = {
+  label: string;
+  value: string;
+};
+
+const props = withDefaults(
+  defineProps<{
+    options: TagPickerOption[];
+    placeholder?: string;
+    multiple?: boolean;
+    exclusiveGroups?: string[][];
+  }>(),
+  {
+    multiple: true,
+  },
+);
 
 const model = defineModel<string[]>({ required: true });
 const open = ref(false);
 
 const selectedOptions = computed(() =>
-  props.options.filter((option) => model.value.includes(option)),
+  props.options.filter((option) => model.value.includes(option.value)),
 );
 
 const { t } = useI18n();
 
 function toggleTag(tag: string) {
-  model.value = model.value.includes(tag)
-    ? model.value.filter((t) => t !== tag)
-    : [...model.value, tag];
+  if (model.value.includes(tag)) {
+    model.value = model.value.filter((value) => value !== tag);
+    return;
+  }
+
+  if (!props.multiple) {
+    model.value = [tag];
+    open.value = false;
+    return;
+  }
+
+  const exclusiveGroup = props.exclusiveGroups?.find((group) => group.includes(tag));
+  const remainingValues = exclusiveGroup
+    ? model.value.filter((value) => !exclusiveGroup.includes(value))
+    : model.value;
+
+  model.value = [...remainingValues, tag];
 }
 
 function removeTag(tag: string) {
@@ -36,14 +62,19 @@ function removeTag(tag: string) {
       >
         <div class="flex min-h-5 min-w-0 flex-1 items-center">
           <div class="flex flex-wrap gap-2" v-if="selectedOptions.length">
-            <Badge class="h-5 gap-1" :key="tag" @click.stop v-for="tag in selectedOptions">
-              {{ tag }}
+            <Badge
+              class="h-5 gap-1"
+              :key="option.value"
+              @click.stop
+              v-for="option in selectedOptions"
+            >
+              {{ option.label }}
 
               <button
                 aria-label="タグを削除"
                 type="button"
                 class="-mr-1 inline-flex size-5 cursor-pointer items-center justify-center rounded-full opacity-70 hover:opacity-100"
-                @click.stop="removeTag(tag)"
+                @click.stop="removeTag(option.value)"
               >
                 <X class="size-3" />
               </button>
@@ -67,13 +98,13 @@ function removeTag(tag: string) {
         <Badge
           type="button"
           class="cursor-pointer"
-          :key="option"
-          :variant="model.includes(option) ? 'default' : 'secondary'"
-          @click="toggleTag(option)"
+          :key="option.value"
+          :variant="model.includes(option.value) ? 'default' : 'secondary'"
+          @click="toggleTag(option.value)"
           as="button"
           v-for="option in options"
         >
-          {{ option }}
+          {{ option.label }}
         </Badge>
       </div>
     </PopoverContent>

@@ -45,7 +45,12 @@ const { data: recruits } = await useAsyncData(
 
 const selectedTags = ref<string[]>([]);
 
-const tagOptions = computed(() => [...new Set(recruits.value.flatMap((recruit) => recruit.tags))]);
+const tagOptions = computed(() =>
+  [...new Set(recruits.value.flatMap((recruit) => recruit.tags))].map((value) => ({
+    label: value,
+    value,
+  })),
+);
 
 const filteredRecruits = computed(() => {
   if (selectedTags.value.length === 0) {
