@@ -1,13 +1,18 @@
 <script lang="ts" setup>
+import type { ListPatchNotes200ResponseItemsInner } from "@azisaba/graph";
 import type { Collections } from "@nuxt/content";
 
 type FeedItem = {
   id: string;
-  type: "blog" | "rule" | "recruit";
+  type: "blog" | "rule" | "recruit" | "patchNote";
   title: string;
   description: string;
   date: string;
   to: string;
+};
+
+type PatchNoteFeedSource = Pick<ListPatchNotes200ResponseItemsInner, "id" | "title" | "body"> & {
+  createdAt: Date | string;
 };
 
 const { t, d } = useI18n();
@@ -43,19 +48,30 @@ const toRecruitItem = (recruit: Collections["recruit"]): FeedItem => ({
   to: `/recruits/${getSlug(recruit.path)}`,
 });
 
+const toPatchNoteItem = (patchNote: PatchNoteFeedSource): FeedItem => ({
+  id: `patch-note:${patchNote.id}`,
+  type: "patchNote",
+  title: patchNote.title,
+  description: patchNote.body,
+  date: toDateString(patchNote.createdAt),
+  to: `/patch-notes/${patchNote.id}`,
+});
+
 const { data: news } = await useAsyncData(
   "feed",
   async () => {
-    const [articles, rules, recruits] = await Promise.all([
+    const [articles, rules, recruits, patchNotes] = await Promise.all([
       queryCollection("article").where("published", "=", true).all(),
       queryCollection("rule").all(),
       queryCollection("recruit").where("published", "=", true).all(),
+      $fetch("/api/patch-notes", { query: { limit: 10 } }),
     ]);
 
     return [
       ...articles.map(toArticleItem),
       ...rules.map(toRuleItem),
       ...recruits.map(toRecruitItem),
+      ...patchNotes.items.map(toPatchNoteItem),
     ]
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 10);
