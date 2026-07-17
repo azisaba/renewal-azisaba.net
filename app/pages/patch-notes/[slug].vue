@@ -4,24 +4,45 @@ const { t, d } = useI18n();
 const route = useRoute();
 const slug = route.params.slug as string;
 
-const { data: patchNote } = await useFetch(`/api/patch-notes/${slug}`);
+const shouldFetchOnServer = !import.meta.prerender;
 
-if (!patchNote.value) {
+const { data: patchNote, error } = await useFetch(`/api/patch-notes/${slug}`, {
+  server: shouldFetchOnServer,
+  default: () => null,
+});
+
+if (shouldFetchOnServer && error.value) {
+  throw error.value;
+}
+
+if (shouldFetchOnServer && !patchNote.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",
   });
 }
 
-const authorId = patchNote.value.authorId;
-const { data: author } = authorId
-  ? await useFetch(`/api/players/${authorId}`)
-  : { data: ref(null) };
+watchEffect(() => {
+  if (!shouldFetchOnServer && error.value) {
+    showError(error.value);
+  }
+});
+
+const authorId = computed(() => patchNote.value?.authorId);
+const { data: author } = await useFetch(
+  () => (authorId.value ? `/api/players/${authorId.value}` : null),
+  {
+    server: shouldFetchOnServer,
+    default: () => null,
+  },
+);
 
 const seo = useAzisabaSeo();
-const title = seo.title(computed(() => patchNote.value?.title));
-const description = seo.description(computed(() => patchNote.value?.body.slice(0, 160)));
-const image = seo.image(computed(() => patchNote.value?.imageUrls[0]));
+const title = seo.title(computed(() => patchNote.value?.title ?? t("pages.patchNotes.name")));
+const description = seo.description(
+  computed(() => patchNote.value?.body?.slice(0, 160) ?? t("pages.patchNotes.description")),
+);
+const image = seo.image(computed(() => patchNote.value?.imageUrls[0] ?? "/images/toppage.png"));
 const date = seo.date(computed(() => patchNote.value?.createdAt));
 
 useSeoMeta({
@@ -74,6 +95,16 @@ useHead({
     </HeroContent>
   </Hero>
 
+  <Hero height="compact" v-else>
+    <HeroContent>
+      <template #title>
+        {{ t("pages.patchNotes.name") }}
+      </template>
+
+      <p>{{ t("pages.patchNotes.description") }}</p>
+    </HeroContent>
+  </Hero>
+
   <Section v-if="patchNote">
     <article>
       <p class="mb-4 flex items-center gap-2 font-mono text-2xl" v-if="author">
@@ -89,6 +120,10 @@ useHead({
 
       <PatchNoteImageGallery :image-urls="patchNote.imageUrls" :title="patchNote.title" />
     </article>
+  </Section>
+
+  <Section v-else>
+    <p class="text-slate-500">読み込み中...</p>
   </Section>
 </template>
 

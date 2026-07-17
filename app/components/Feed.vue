@@ -77,6 +77,7 @@ const { data: news } = await useAsyncData(
       .slice(0, 10);
   },
   {
+    server: !import.meta.prerender,
     default: () => [],
   },
 );
