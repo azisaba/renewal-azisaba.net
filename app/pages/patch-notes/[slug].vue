@@ -4,17 +4,7 @@ const { t, d } = useI18n();
 const route = useRoute();
 const slug = route.params.slug as string;
 
-const { data: patchNote, error: patchNoteError } = await useAsyncData(
-  `patch-note-${slug}`,
-  () => $fetch(`/api/patch-notes/${slug}`),
-  {
-    default: () => null,
-  },
-);
-
-if (patchNoteError.value) {
-  throw patchNoteError.value;
-}
+const { data: patchNote } = await useFetch(`/api/patch-notes/${slug}`);
 
 if (!patchNote.value) {
   throw createError({
@@ -23,23 +13,10 @@ if (!patchNote.value) {
   });
 }
 
-const { data: author } = await useAsyncData(
-  `patch-note-author-${patchNote.value.authorId ?? "none"}`,
-  () =>
-    patchNote.value?.authorId
-      ? $fetch(`/api/players/${patchNote.value.authorId}`)
-      : Promise.resolve(null),
-  {
-    default: () => null,
-  },
-);
-
 const seo = useAzisabaSeo();
-const title = seo.title(computed(() => patchNote.value?.title ?? t("pages.patchNotes.name")));
-const description = seo.description(
-  computed(() => patchNote.value?.body?.slice(0, 160) ?? t("pages.patchNotes.description")),
-);
-const image = seo.image(computed(() => patchNote.value?.imageUrls[0] ?? "/images/toppage.png"));
+const title = seo.title(computed(() => patchNote.value?.title));
+const description = seo.description(computed(() => patchNote.value?.body.slice(0, 160)));
+const image = seo.image(computed(() => patchNote.value?.imageUrls[0]));
 const date = seo.date(computed(() => patchNote.value?.createdAt));
 
 useSeoMeta({
@@ -94,15 +71,6 @@ useHead({
 
   <Section v-if="patchNote">
     <article>
-      <p class="mb-4 flex items-center gap-2 font-mono text-2xl" v-if="author">
-        <NuxtImg
-          class="size-8 [image-rendering:pixelated]"
-          :alt="`${author.username}'s avatar`"
-          :src="`https://api.mineatar.io/face/${author.id}`"
-        />
-        {{ author.username }}
-      </p>
-
       <p class="text-base leading-8 whitespace-pre-wrap text-slate-700">{{ patchNote.body }}</p>
 
       <PatchNoteImageGallery :image-urls="patchNote.imageUrls" :title="patchNote.title" />
