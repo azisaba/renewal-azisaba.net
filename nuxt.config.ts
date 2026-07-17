@@ -81,6 +81,9 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    "/": { prerender: false },
+    "/patch-notes": { prerender: false },
+    "/patch-notes/**": { prerender: false },
     "/terms": { redirect: "/rules/terms" },
     "/minecraft-server-policy": { redirect: "/rules/minecraft-server-policy" },
     "/minecraft-all-srv-rule": { redirect: "/rules/global-server-rules" },
