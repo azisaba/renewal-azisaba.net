@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "shadcn-nuxt",
+    "nuxt-og-image",
   ],
   css: [
     "bootstrap-icons/font/bootstrap-icons.css",

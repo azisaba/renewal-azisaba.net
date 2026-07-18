@@ -49,6 +49,13 @@ useSeoMeta({
 useHead({
   link: [{ rel: "canonical", href: seo.canonical }],
 });
+
+defineOgImage("PatchNote.takumi", {
+  title: patchNote.value.title,
+  categoryLabel: t(`common.patchNoteCategory.${patchNote.value.category}`),
+  authorId: author.value?.id,
+  authorName: author.value?.username,
+});
 </script>
 
 <template>
