@@ -29,6 +29,9 @@ importers:
       '@takumi-rs/core':
         specifier: 2.0.0-rc.16
         version: 2.0.0-rc.16(csstype@3.2.3)
+      '@takumi-rs/wasm':
+        specifier: 2.0.0-rc.16
+        version: 2.0.0-rc.16(csstype@3.2.3)
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.40(typescript@6.0.3))
@@ -61,7 +64,7 @@ importers:
         version: 4.4.8(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@biomejs/biome@2.5.2)(@parcel/watcher@2.5.6)(@types/node@26.1.1)(@vue/compiler-sfc@3.5.39)(better-sqlite3@12.8.0)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.8.0))(esbuild@0.28.1)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.11.1)(lightningcss@1.32.0)(magicast@0.5.3)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.62.2))(rollup@4.62.2)(terser@5.31.6)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.31.6)(tsx@4.21.0)(yaml@2.9.0))(yaml@2.9.0)
       nuxt-og-image:
         specifier: 6.7.2
-        version: 6.7.2(8b5fe82c80f8ec9c9a21f94cac636cdf)
+        version: 6.7.2(41f786df9a66784c1d6946bc733321ac)
       reka-ui:
         specifier: ^2.10.1
         version: 2.10.1(vue@3.5.40(typescript@6.0.3))
@@ -3020,6 +3023,15 @@ packages:
       react:
         optional: true
       react-dom:
+        optional: true
+
+  '@takumi-rs/wasm@2.0.0-rc.16':
+    resolution: {integrity: sha512-RgXZbSxX7gBt7oMPyyQ7SkFo1d4sQvjMiYtRWbBkeN6fxHn2OAoPvDle2RHMw1Mx36+gE8dIxRaNwc4iypQnjA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      csstype: '*'
+    peerDependenciesMeta:
+      csstype:
         optional: true
 
   '@tanstack/table-core@8.21.3':
@@ -9932,6 +9944,15 @@ snapshots:
 
   '@takumi-rs/helpers@2.0.0-rc.16': {}
 
+  '@takumi-rs/wasm@2.0.0-rc.16(csstype@3.2.3)':
+    dependencies:
+      '@takumi-rs/helpers': 2.0.0-rc.16
+    optionalDependencies:
+      csstype: 3.2.3
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
   '@tanstack/table-core@8.21.3': {}
 
   '@tanstack/virtual-core@3.17.3': {}
@@ -9968,7 +9989,7 @@ snapshots:
 
   '@tiptap/extension-bubble-menu@3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0)':
     dependencies:
-      '@floating-ui/dom': 1.7.6
+      '@floating-ui/dom': 1.8.0
       '@tiptap/core': 3.28.0(@tiptap/pm@3.28.0)
       '@tiptap/pm': 3.28.0
 
@@ -10005,7 +10026,7 @@ snapshots:
 
   '@tiptap/extension-drag-handle@3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/extension-collaboration@3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0)(@tiptap/y-tiptap@3.0.7(prosemirror-model@1.25.11)(prosemirror-state@1.4.4)(prosemirror-view@1.42.1)(y-protocols@1.0.7(yjs@13.6.31))(yjs@13.6.31))(yjs@13.6.31))(@tiptap/extension-node-range@3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0)(@tiptap/y-tiptap@3.0.7(prosemirror-model@1.25.11)(prosemirror-state@1.4.4)(prosemirror-view@1.42.1)(y-protocols@1.0.7(yjs@13.6.31))(yjs@13.6.31))':
     dependencies:
-      '@floating-ui/dom': 1.7.6
+      '@floating-ui/dom': 1.8.0
       '@tiptap/core': 3.28.0(@tiptap/pm@3.28.0)
       '@tiptap/extension-collaboration': 3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0)(@tiptap/y-tiptap@3.0.7(prosemirror-model@1.25.11)(prosemirror-state@1.4.4)(prosemirror-view@1.42.1)(y-protocols@1.0.7(yjs@13.6.31))(yjs@13.6.31))(yjs@13.6.31)
       '@tiptap/extension-node-range': 3.28.0(@tiptap/core@3.28.0(@tiptap/pm@3.28.0))(@tiptap/pm@3.28.0)
@@ -13031,7 +13052,7 @@ snapshots:
 
   nuxt-define@1.0.0: {}
 
-  nuxt-og-image@6.7.2(8b5fe82c80f8ec9c9a21f94cac636cdf):
+  nuxt-og-image@6.7.2(41f786df9a66784c1d6946bc733321ac):
     dependencies:
       '@clack/prompts': 1.6.0
       '@nuxt/kit': 4.4.8(magicast@0.5.3)
@@ -13069,6 +13090,7 @@ snapshots:
       unstorage: 1.17.5(db0@0.3.4(better-sqlite3@12.8.0))(ioredis@5.11.1)
     optionalDependencies:
       '@takumi-rs/core': 2.0.0-rc.16(csstype@3.2.3)
+      '@takumi-rs/wasm': 2.0.0-rc.16(csstype@3.2.3)
       fontless: 0.2.1(db0@0.3.4(better-sqlite3@12.8.0))(ioredis@5.11.1)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.31.6)(tsx@4.21.0)(yaml@2.9.0))
       nitropack: 2.13.4(better-sqlite3@12.8.0)(oxc-parser@0.138.0)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.31.6)(tsx@4.21.0)(yaml@2.9.0))
       sharp: 0.34.5

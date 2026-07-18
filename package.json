@@ -19,6 +19,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "10.4.0",
     "@takumi-rs/core": "2.0.0-rc.16",
+    "@takumi-rs/wasm": "2.0.0-rc.16",
     "@tanstack/vue-table": "^8.21.3",
     "@twemoji/api": "^17.0.3",
     "@unhead/vue": "^2.1.15",
