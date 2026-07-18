@@ -1,16 +1,10 @@
 <script lang="ts" setup>
 import type { PatchNoteCategory } from "@azisaba/graph";
 
-const {
-  title = "TITLE_MISSING",
-  category = "fix",
-  categoryLabel = "CATEGORY_MISSING",
-  authorId = "AUTHOR_ID_MISSING",
-  authorName = "AUTHOR_NAME_MISSING",
-} = defineProps<{
-  title?: string;
-  category?: PatchNoteCategory;
-  categoryLabel?: string;
+const { title, category, categoryLabel, authorId, authorName } = defineProps<{
+  title: string;
+  category: PatchNoteCategory;
+  categoryLabel: string;
   authorId?: string;
   authorName?: string;
 }>();
@@ -54,7 +48,7 @@ const categoryColors = {
       </h1>
     </div>
 
-    <div class="flex shrink-0 items-center gap-4 self-start">
+    <div class="flex shrink-0 items-center gap-4 self-start" v-if="authorName && authorId">
       <img
         class="size-16 shrink-0 [image-rendering:pixelated]"
         :alt="authorName"
