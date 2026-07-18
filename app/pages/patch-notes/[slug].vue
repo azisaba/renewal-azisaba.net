@@ -95,7 +95,7 @@ defineOgImage("PatchNote.takumi", {
   </Hero>
 
   <Section v-if="patchNote">
-    <article>
+    <article v-twemoji>
       <p class="text-base leading-8 whitespace-pre-wrap text-slate-700">{{ patchNote.body }}</p>
 
       <PatchNoteImageGallery :image-urls="patchNote.imageUrls" :title="patchNote.title" />

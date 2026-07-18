@@ -40,7 +40,7 @@ const categoryColors = {
 
       <div class="flex items-start">
         <div
-          class="rounded-full px-6 py-2 text-[24px] font-bold text-white"
+          class="rounded-full px-8 py-4 text-[32px] leading-none font-bold text-white"
           :style="{ backgroundColor: categoryColors[category] }"
         >
           {{ categoryLabel }}
