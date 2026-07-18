@@ -52,6 +52,7 @@ useHead({
 
 defineOgImage("PatchNote.takumi", {
   title: patchNote.value.title,
+  category: patchNote.value.category,
   categoryLabel: t(`common.patchNoteCategory.${patchNote.value.category}`),
   authorId: author.value?.id,
   authorName: author.value?.username,
