@@ -13,6 +13,16 @@ if (!patchNote.value) {
   });
 }
 
+const authorId = patchNote.value.authorId;
+
+const { data: author } = await useAsyncData(`patch-note-author:${authorId ?? "none"}`, async () => {
+  if (!authorId) {
+    return null;
+  }
+
+  return await $fetch(`/api/players/${authorId}`);
+});
+
 const seo = useAzisabaSeo();
 const title = seo.title(computed(() => patchNote.value?.title));
 const description = seo.description(computed(() => patchNote.value?.body.slice(0, 160)));
@@ -54,6 +64,14 @@ useHead({
       >
         {{ d(new Date(patchNote.createdAt)) }}
       </time>
+
+      <p class="flex items-center gap-4 font-mono text-2xl text-white" v-if="author">
+        <NuxtImg
+          class="size-12 [image-rendering:pixelated]"
+          :src="`https://api.mineatar.io/head/${author.id}`"
+        />
+        {{ author.username }}
+      </p>
 
       <div class="flex flex-wrap items-center gap-2">
         <PatchNoteTargetBadge :value="patchNote.target" />
