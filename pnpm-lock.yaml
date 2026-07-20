@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@azisaba/graph':
-        specifier: 0.1.0-rc.6
-        version: 0.1.0-rc.6
+        specifier: 0.1.0-rc.7
+        version: 0.1.0-rc.7
       '@lucide/vue':
         specifier: ^1.23.0
         version: 1.23.0(vue@3.5.40(typescript@6.0.3))
@@ -136,8 +136,8 @@ packages:
     peerDependencies:
       '@types/json-schema': ^7.0.15
 
-  '@azisaba/graph@0.1.0-rc.6':
-    resolution: {integrity: sha512-j7o3vqTydr99aNnG0eqobvCOQQxdMryFMmzNImHJFekeaFewydcsXghg5uixvAhgV67ER+ZcOR/nLa083FPRXQ==}
+  '@azisaba/graph@0.1.0-rc.7':
+    resolution: {integrity: sha512-vNV8hiXmEL8GVXwqQz2/W2l7Jm0ZH+LTl2qLSsnzdQjrVg/A7LOOlF5fYzAQqEuNHE1LXoATWiwJh07DEzuEcA==}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -7309,7 +7309,7 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.3.0
 
-  '@azisaba/graph@0.1.0-rc.6': {}
+  '@azisaba/graph@0.1.0-rc.7': {}
 
   '@babel/code-frame@7.29.7':
     dependencies:

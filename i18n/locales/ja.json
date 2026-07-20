@@ -8,6 +8,7 @@
       "feature": "✨ 新機能",
       "fix": "🐛 バグ修正",
       "improvement": "📈 改善",
+      "map": "🗺️ マップ",
       "remove": "✂️ 削除"
     },
     "patchNoteTarget": {

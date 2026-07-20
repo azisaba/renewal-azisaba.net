@@ -15,6 +15,7 @@ const categoryColors = {
   feature: "#8b5cf6",
   fix: "#f43f5e",
   improvement: "#0ea5e9",
+  map: "#22c55e",
   remove: "#64748b",
 } satisfies Record<PatchNoteCategory, string>;
 </script>
