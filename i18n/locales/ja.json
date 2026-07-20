@@ -4,9 +4,11 @@
     "copied": "コピーしました！",
     "patchNoteCategory": {
       "balance": "🔧 バランス",
+      "event": "🥳 イベント",
       "feature": "✨ 新機能",
       "fix": "🐛 バグ修正",
-      "improvement": "📈 改善"
+      "improvement": "📈 改善",
+      "remove": "✂️ 削除"
     },
     "patchNoteTarget": {
       "general": "全体",

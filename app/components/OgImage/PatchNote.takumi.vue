@@ -11,9 +11,11 @@ const { title, category, categoryLabel, authorId, authorName } = defineProps<{
 
 const categoryColors = {
   balance: "#f59e0b",
+  event: "#ec4899",
   feature: "#8b5cf6",
   fix: "#f43f5e",
   improvement: "#0ea5e9",
+  remove: "#64748b",
 } satisfies Record<PatchNoteCategory, string>;
 </script>
 
