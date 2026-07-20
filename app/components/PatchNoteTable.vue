@@ -48,7 +48,6 @@ const filterQuery = () => ({
 
 const fetchPatchNotes = (cursor?: string | null) =>
   $fetch<ListPatchNotes200Response>("/api/patch-notes", {
-    cache: "no-store",
     query: {
       limit: pageSize,
       cursor: cursor ?? undefined,
