@@ -17,7 +17,7 @@
     "@nuxt/content": "^3.15.0",
     "@nuxt/fonts": "0.14.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/i18n": "10.4.0",
+    "@nuxtjs/i18n": "10.5.0",
     "@takumi-rs/core": "2.0.0-rc.16",
     "@takumi-rs/wasm": "2.0.0-rc.16",
     "@tanstack/vue-table": "^8.21.3",
