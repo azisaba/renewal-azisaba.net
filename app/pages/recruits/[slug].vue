@@ -72,7 +72,7 @@ useHead({
   </Hero>
 
   <Section>
-    <ContentRenderer class="markdown" :value="page" v-if="page" />
+    <ContentRenderer class="markdown" :value="page" v-if="page" v-twemoji />
   </Section>
 </template>
 
