@@ -2,7 +2,7 @@
 title: Leon Gun War 2
 summary: チームデスマッチやリーダーデスマッチのPvPを基本とした銃撃戦
 status: available
-iconSrc: /images/servers/leon-gun-war-2.png
+iconSrc: /images/servers/leon-gun-war-2.webp
 ---
 
 ![](https://i.azisaba.net/votesites/banner_lgw-2.png)

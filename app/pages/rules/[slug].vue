@@ -24,7 +24,7 @@ const description = seo.description(
       : undefined,
   ),
 );
-const image = seo.image("/images/heroes/rules.png");
+const image = seo.image("/images/heroes/rules.webp");
 const modifiedTime = seo.date(computed(() => page.value?.lastUpdated));
 
 useSeoMeta({

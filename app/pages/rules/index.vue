@@ -4,7 +4,7 @@ const { t } = useI18n();
 const seo = useAzisabaSeo();
 const title = seo.title(t("pages.rules.name"));
 const description = seo.description(t("pages.rules.description"));
-const image = seo.image("/images/heroes/rules.png");
+const image = seo.image("/images/heroes/rules.webp");
 
 useSeoMeta({
   title,
@@ -60,7 +60,7 @@ const { data: otherRules } = await useAsyncData(
       </template>
       <p>{{ t("pages.rules.description") }}</p>
     </HeroContent>
-    <HeroFloatingImage src="/images/heroes/rules.png" />
+    <HeroFloatingImage src="/images/heroes/rules.webp" />
   </Hero>
 
   <Section>

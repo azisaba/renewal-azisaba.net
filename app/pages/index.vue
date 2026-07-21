@@ -6,7 +6,7 @@ const title = seo.title(t("pages.home.name"));
 const description = seo.description(
   "Minecraftマルチプレイサーバー アジ鯖の公式ホームページです。サーバー情報、お知らせ、ルール、採用情報を掲載しています。",
 );
-const image = seo.image("/images/toppage.png");
+const image = seo.image("/images/toppage.webp");
 
 useSeoMeta({
   title,
@@ -30,7 +30,7 @@ useHead({
 
 <template>
   <div class="relative">
-    <NuxtImg alt="Top image" class="aspect-video w-full object-cover" src="/images/toppage.png" />
+    <NuxtImg alt="Top image" class="aspect-video w-full object-cover" src="/images/toppage.webp" />
     <div class="absolute inset-0 bg-black/10" />
 
     <div class="absolute inset-0 flex items-center justify-center px-4 text-center sm:px-6">

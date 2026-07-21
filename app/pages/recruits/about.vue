@@ -4,7 +4,7 @@ const { t } = useI18n();
 const seo = useAzisabaSeo();
 const title = seo.title(t("pages.recruits.about.name"));
 const description = seo.description(t("pages.recruits.about.description"));
-const image = seo.image("/images/heroes/recruit.png");
+const image = seo.image("/images/heroes/recruit.webp");
 
 useSeoMeta({
   title,

@@ -74,7 +74,7 @@ const selectedCategory = computed(
       />
     </HeroContent>
 
-    <HeroFloatingImage src="/images/heroes/patch-notes.png" />
+    <HeroFloatingImage src="/images/heroes/patch-notes.webp" />
   </Hero>
 
   <Section>

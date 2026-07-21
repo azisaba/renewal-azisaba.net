@@ -2,7 +2,7 @@
 title: Frontier
 summary: 新しい世界でいちから暮らしを始めるシーズン制の生活鯖
 status: available
-iconSrc: /images/servers/frontier.png
+iconSrc: /images/servers/frontier.webp
 supportedVersion:
   - 1.9
   - 26.1

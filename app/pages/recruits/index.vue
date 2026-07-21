@@ -14,7 +14,7 @@ const { t } = useI18n();
 const seo = useAzisabaSeo();
 const title = seo.title(t("pages.recruits.name"));
 const description = seo.description(t("pages.recruits.description"));
-const image = seo.image("/images/heroes/recruit.png");
+const image = seo.image("/images/heroes/recruit.webp");
 
 useSeoMeta({
   title,
@@ -64,7 +64,7 @@ const filteredRecruits = computed(() => {
 </script>
 
 <template>
-  <Hero :title="t('pages.recruits.title')" hero-image-src="/images/heroes/recruit.png">
+  <Hero :title="t('pages.recruits.title')" hero-image-src="/images/heroes/recruit.webp">
     <HeroContent>
       <template #title>
         {{ t("pages.recruits.title") }}
@@ -123,7 +123,7 @@ const filteredRecruits = computed(() => {
         {{ t("pages.recruits.links.googleForm") }}
       </HeroLink>
     </HeroContent>
-    <HeroFloatingImage src="/images/heroes/recruit.png" />
+    <HeroFloatingImage src="/images/heroes/recruit.webp" />
   </Hero>
 
   <Section>

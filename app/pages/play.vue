@@ -10,7 +10,7 @@ const title = seo.title(t("pages.play.name"));
 const description = seo.description(
   "アジ鯖への接続アドレスと、参加前に確認しておきたいルールを案内しています。",
 );
-const image = seo.image("/images/toppage.png");
+const image = seo.image("/images/toppage.webp");
 
 useSeoMeta({
   title,

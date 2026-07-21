@@ -27,7 +27,7 @@ const categoryColors = {
         <img
           alt="アジ鯖"
           class="size-16 shrink-0 rounded-lg object-contain"
-          src="/images/logo.png"
+          src="/images/logo.webp"
         />
 
         <div class="h-10 w-px bg-white/40" />
