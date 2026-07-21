@@ -30,16 +30,7 @@ useHead({
 
 <template>
   <div class="relative">
-    <NuxtImg
-      alt="Top image"
-      class="aspect-video w-full object-cover"
-      format="webp"
-      height="1080"
-      quality="75"
-      sizes="100vw lg:1280px"
-      src="/images/toppage.png"
-      width="1920"
-    />
+    <NuxtImg alt="Top image" class="aspect-video w-full object-cover" src="/images/toppage.png" />
     <div class="absolute inset-0 bg-black/10" />
 
     <div class="absolute inset-0 flex items-center justify-center px-4 text-center sm:px-6">
