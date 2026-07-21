@@ -41,6 +41,12 @@ export default defineNuxtConfig({
     prefix: "",
     componentDir: "@/components/ui",
   },
+  image: {
+    provider: "cloudflare",
+    cloudflare: {
+      baseURL: "https://www.azisaba.net",
+    },
+  },
   i18n: {
     defaultLocale: "ja",
     locales: [

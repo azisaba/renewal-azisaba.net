@@ -35,7 +35,7 @@ useHead({
       class="aspect-video w-full object-cover"
       format="webp"
       height="1080"
-      quality="80"
+      quality="75"
       sizes="100vw lg:1280px"
       src="/images/toppage.png"
       width="1920"
