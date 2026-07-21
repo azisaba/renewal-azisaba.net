@@ -4,7 +4,9 @@ export default defineCachedEventHandler(
   async (event): Promise<ListPatchNotesResponse> => {
     const request = getQuery(event) as ListPatchNotesRequest;
     try {
-      return await patchNotesApi.listPatchNotes(request);
+      return await patchNotesApi.listPatchNotes(request, {
+        signal: AbortSignal.timeout(1000),
+      });
     } catch (error) {
       console.error("listPatchNotes failed", error);
       throw error;
