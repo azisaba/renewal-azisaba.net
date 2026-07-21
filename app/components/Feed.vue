@@ -57,14 +57,43 @@ const toPatchNoteItem = (patchNote: PatchNoteFeedSource): FeedItem => ({
   to: `/patch-notes/${patchNote.id}`,
 });
 
+const loadFeedSource = async <T,>(
+  name: string,
+  load: () => Promise<T>,
+  fallback: T,
+): Promise<T> => {
+  try {
+    return await load();
+  } catch (error) {
+    console.error(`Failed to load ${name} feed source`, error);
+    return fallback;
+  }
+};
+
 const { data: news } = await useAsyncData(
   "feed",
   async () => {
     const [articles, rules, recruits, patchNotes] = await Promise.all([
-      queryCollection("article").where("published", "=", true).all(),
-      queryCollection("rule").all(),
-      queryCollection("recruit").where("published", "=", true).all(),
-      $fetch("/api/patch-notes", { query: { limit: 10 } }),
+      loadFeedSource(
+        "articles",
+        () => queryCollection("article").where("published", "=", true).all(),
+        [],
+      ),
+      loadFeedSource("rules", () => queryCollection("rule").all(), []),
+      loadFeedSource(
+        "recruits",
+        () => queryCollection("recruit").where("published", "=", true).all(),
+        [],
+      ),
+      loadFeedSource(
+        "patch notes",
+        () =>
+          $fetch("/api/patch-notes", {
+            query: { limit: 10 },
+            signal: AbortSignal.timeout(3000),
+          }),
+        { items: [], nextCursor: null },
+      ),
     ]);
 
     return [

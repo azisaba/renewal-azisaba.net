@@ -4,6 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+  nitro: {
+    preset: "cloudflare_pages",
+  },
+  content: {
+    database: {
+      type: "d1",
+      bindingName: "DB",
+    },
+  },
   modules: [
     "@nuxt/content",
     "@nuxt/fonts",
@@ -40,12 +49,6 @@ export default defineNuxtConfig({
   shadcn: {
     prefix: "",
     componentDir: "@/components/ui",
-  },
-  image: {
-    provider: "cloudflare",
-    cloudflare: {
-      baseURL: "https://www.azisaba.net",
-    },
   },
   i18n: {
     defaultLocale: "ja",
