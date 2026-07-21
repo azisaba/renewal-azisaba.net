@@ -8,8 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "check": "prettier . --check",
-    "fix": "prettier . --write"
+    "format:check": "prettier . --check",
+    "format:fix": "prettier . --write"
   },
   "dependencies": {
     "@azisaba/graph": "0.1.0-rc.7",
