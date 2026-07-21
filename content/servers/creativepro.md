@@ -2,7 +2,7 @@
 title: CreativePro
 summary: 土地保護のないシンプルなクリエイティブ
 status: available
-iconSrc: /images/servers/creativepro.png
+iconSrc: /images/servers/creativepro.webp
 supportedVersion:
   - 1.9
   - 1.21.11

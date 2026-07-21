@@ -2,7 +2,7 @@
 title: LIFE
 summary: サバイバル要素や建築、経済システム、PvEを楽しめる生活鯖
 status: available
-iconSrc: /images/servers/life.png
+iconSrc: /images/servers/life.webp
 ---
 
 ![](https://i.azisaba.net/albums/life/zaeo0PNhKd.png)

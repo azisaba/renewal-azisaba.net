@@ -12,7 +12,7 @@ defineProps<{
   <header :class="cn('text-white', transparent ? 'bg-transparent' : 'bg-zinc-800')">
     <div class="mx-auto flex w-full max-w-4xl items-center justify-between px-2 py-3">
       <NuxtLink class="flex items-center gap-2" to="/">
-        <NuxtImg class="rounded-md" height="32" src="/images/logo.png" width="32" />
+        <NuxtImg class="rounded-md" height="32" src="/images/logo.webp" width="32" />
 
         <div class="flex flex-col justify-center gap-1">
           <h1 class="font-logo text-lg leading-none font-bold">

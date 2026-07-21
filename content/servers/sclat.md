@@ -2,7 +2,7 @@
 title: Sclat
 summary: スプラトゥーンライクなゲーム
 status: available
-iconSrc: /images/servers/sclat.png
+iconSrc: /images/servers/sclat.webp
 supportedVersion:
   - 1.14.4
   - 1.21.11

@@ -4,7 +4,7 @@ const siteName = "アジ鯖公式サイト";
 const siteUrl = "https://www.azisaba.net";
 const defaultDescription =
   "アジ鯖、たのしい。Minecraftマルチプレイサーバー アジ鯖の公式ホームページです。";
-const defaultImage = "/images/toppage.png";
+const defaultImage = "/images/toppage.webp";
 
 const normalizeDescription = (description?: string) => {
   const normalized = description?.replace(/\s+/g, " ").trim();

@@ -20,7 +20,7 @@ if (!page.value) {
 const seo = useAzisabaSeo();
 const title = seo.title(computed(() => page.value?.title));
 const description = seo.description(computed(() => page.value?.summary));
-const image = seo.image("/images/heroes/servers.png");
+const image = seo.image("/images/heroes/servers.webp");
 
 useSeoMeta({
   title,

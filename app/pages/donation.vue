@@ -7,7 +7,7 @@ const { t } = useI18n();
 const seo = useAzisabaSeo();
 const title = seo.title(t("pages.donation.name"));
 const description = seo.description(t("pages.donation.description"));
-const image = seo.image("/images/heroes/donation.png");
+const image = seo.image("/images/heroes/donation.webp");
 
 useSeoMeta({
   title,
@@ -54,7 +54,7 @@ const { data: doners } = await useFetch("/api/doners", {
         {{ t("pages.donation.links.commercialTransactions") }}
       </HeroLink>
     </HeroContent>
-    <HeroFloatingImage src="/images/heroes/donation.png" />
+    <HeroFloatingImage src="/images/heroes/donation.webp" />
   </Hero>
 
   <Section>
