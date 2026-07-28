@@ -83,7 +83,7 @@ onMounted(() => {
 
     <div class="relative flex min-h-screen items-center justify-center px-4 text-center">
       <div class="flex w-full max-w-lg flex-col items-center gap-12">
-        <h1 class="text-center text-5xl sm:text-6xl">
+        <h1 class="text-center text-5xl sm:text-6xl sm:whitespace-nowrap">
           {{ t("pages.play.title") }}
         </h1>
 
