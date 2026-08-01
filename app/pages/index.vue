@@ -29,9 +29,10 @@ useHead({
 </script>
 
 <template>
-  <div class="relative">
-    <NuxtImg alt="Top image" class="aspect-video w-full object-cover" src="/images/toppage.webp" />
-    <div class="absolute inset-0 bg-black/10" />
+  <div class="relative h-[clamp(20rem,42vw,34rem)] overflow-hidden">
+    <NuxtImg alt="Top image" class="h-full w-full object-cover" src="/images/toppage.webp" />
+
+    <div class="absolute inset-0 bg-black/30" />
 
     <div class="absolute inset-0 flex items-center justify-center px-4 text-center sm:px-6">
       <div
@@ -44,7 +45,9 @@ useHead({
         </h1>
 
         <NuxtLink class="w-fit" to="/play">
-          <Button class="bg-azisaba hover:bg-azisaba cursor-pointer px-8 py-6 text-2xl">
+          <Button
+            class="bg-azisaba cursor-pointer px-8 py-6 text-2xl hover:bg-white hover:text-black"
+          >
             {{ t("pages.home.playNow") }}
           </Button>
         </NuxtLink>
