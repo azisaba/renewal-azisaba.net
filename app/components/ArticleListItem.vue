@@ -13,9 +13,11 @@ const { d } = useI18n();
 <template>
   <NuxtLink class="group block min-w-0" :to="`/blog/${value.path.split('/').pop()}`">
     <article class="flex min-w-0 flex-col gap-3 px-2 py-4 sm:flex-row sm:items-center">
-      <div class="relative aspect-video w-full shrink-0 overflow-hidden sm:w-72">
+      <div
+        class="relative aspect-video w-full shrink-0 overflow-hidden rounded-lg bg-black sm:w-72"
+      >
         <NuxtImg
-          class="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-102"
+          class="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-102"
           :alt="value.title"
           :src="value.thumbnail"
         />
