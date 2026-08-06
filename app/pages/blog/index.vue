@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ArticleListItem from "../../components/ArticleListItem.vue";
+import ArticleList from "~/components/ArticleList.vue";
 
 const { t } = useI18n();
 
@@ -48,9 +48,7 @@ const { data: articles } = await useAsyncData(
   </Hero>
 
   <Section>
-    <div class="flex flex-col gap-4">
-      <ArticleListItem :key="article.path" :value="article" v-for="article in articles" />
-    </div>
+    <ArticleList :articles="articles" :items-per-page="6" />
   </Section>
 </template>
 
