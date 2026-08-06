@@ -18,12 +18,16 @@ import {
   TableRow,
 } from "~/components/ui/table";
 
-const pageSize = 10;
-
-const props = defineProps<{
-  target?: PatchNoteTarget;
-  category?: PatchNoteCategory;
-}>();
+const props = withDefaults(
+  defineProps<{
+    itemsPerPage?: number;
+    target?: PatchNoteTarget;
+    category?: PatchNoteCategory;
+  }>(),
+  {
+    itemsPerPage: 10,
+  },
+);
 
 const { locale } = useI18n();
 
@@ -49,7 +53,7 @@ const filterQuery = () => ({
 const fetchPatchNotes = (cursor?: string | null) =>
   $fetch<ListPatchNotes200Response>("/api/patch-notes", {
     query: {
-      limit: pageSize,
+      limit: props.itemsPerPage,
       cursor: cursor ?? undefined,
       ...filterQuery(),
     },
@@ -85,9 +89,9 @@ const currentPage = computed(() => currentPageIndex.value + 1);
 const paginationTotal = computed(() => {
   const lastPage = getLastPage();
 
-  const loadedItemCount = (pages.value.length - 1) * pageSize + lastPage.items.length;
+  const loadedItemCount = (pages.value.length - 1) * props.itemsPerPage + lastPage.items.length;
 
-  return loadedItemCount + (lastPage.nextCursor ? pageSize : 0);
+  return loadedItemCount + (lastPage.nextCursor ? props.itemsPerPage : 0);
 });
 
 const reload = async () => {
@@ -203,7 +207,7 @@ const showPage = async (page: number) => {
   <Pagination
     class="mt-6"
     :disabled="isLoading"
-    :items-per-page="pageSize"
+    :items-per-page="props.itemsPerPage"
     :page="currentPage"
     :sibling-count="1"
     :total="paginationTotal"

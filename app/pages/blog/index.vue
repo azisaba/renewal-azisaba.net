@@ -48,7 +48,7 @@ const { data: articles } = await useAsyncData(
   </Hero>
 
   <Section>
-    <ArticleList :articles="articles" :items-per-page="6" />
+    <ArticleList :articles="articles" />
   </Section>
 </template>
 

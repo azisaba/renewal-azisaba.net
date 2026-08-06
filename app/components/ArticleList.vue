@@ -4,10 +4,10 @@ import type { Collections } from "@nuxt/content";
 const props = withDefaults(
   defineProps<{
     articles: Collections["article"][];
-    itemsPerPage: number;
+    itemsPerPage?: number;
   }>(),
   {
-    itemsPerPage: 10,
+    itemsPerPage: 8,
   },
 );
 
