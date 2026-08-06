@@ -18,7 +18,7 @@ import {
   TableRow,
 } from "~/components/ui/table";
 
-const pageSize = 20;
+const pageSize = 10;
 
 const props = defineProps<{
   target?: PatchNoteTarget;
