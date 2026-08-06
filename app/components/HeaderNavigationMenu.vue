@@ -35,7 +35,11 @@ const { data: rules } = await useAsyncData("rules", async () => {
               :to="`/servers/${server.path.split('/').pop()}`"
               v-for="server in servers"
             >
-              <NuxtImg class="size-12 shrink-0 rounded" :src="server.iconSrc" />
+              <NuxtImg
+                class="size-12 shrink-0 rounded"
+                :src="server.iconSrc"
+                v-if="server.iconSrc"
+              />
               <p class="font-heading truncate font-bold">{{ server.title }}</p>
             </NuxtLink>
           </div>
