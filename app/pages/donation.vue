@@ -42,9 +42,9 @@ const { data: doners } = await useFetch("/api/doners", {
 
       <p class="whitespace-pre-line">{{ t("pages.donation.description") }}</p>
 
-      <NuxtLink class="w-fit" rel="noopener noreferrer" to="https://azisaba.buycraft.net/">
+      <NuxtLink class="w-fit" rel="noopener noreferrer" to="https://store.azisaba.net/">
         <Button class="cursor-pointer" variant="secondary">
-          {{ t("pages.donation.links.tebex") }}
+          {{ t("pages.donation.links.store") }}
         </Button>
       </NuxtLink>
       <HeroLink to="/donation/note">
