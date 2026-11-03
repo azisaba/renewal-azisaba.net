@@ -3,11 +3,14 @@ title: LIFE
 summary: サバイバル要素や建築、経済システム、PvEを楽しめる生活鯖
 status: available
 iconSrc: /images/servers/life.webp
+supportedVersion:
+  - 1.15.2
+  - 最新版
 ---
 
 ![](https://i.azisaba.net/albums/life/zaeo0PNhKd.png)
 
-# LIFE鯖とは (バージョン1.15.2)
+# LIFE鯖とは
 
 <span style="font-size: 18px">アジ鯖の<b>中心的なサーバー</b>です！</span>
 
@@ -16,7 +19,16 @@ iconSrc: /images/servers/life.webp
 そういったマルチプレイだからこそ出来る楽しみが味わえます！
 
 また、自分以外のプレイヤーと交流できるのでルールがあります！
-**必ず下に書かれてあるルールを読んで理解してから参加しよう！**
+**必ず下に書かれてあるルールを読んで理解してから参加しよう！**  
+
+## あそびかた
+
+サーバーアドレス`mc.azisaba.net`でロビーに接続し、その後、`/server life`と入力してLIFEサーバーに接続することで遊ぶことができます。  
+リソースパックは自動でダウンロードされますが、手動でダウンロードする場合は[こちら](https://pack.azisaba.net/)からダウンロードできます。  
+  
+アジ鯖アドレス: `mc.azisaba.net`  
+サーバー直通アドレス: `life.server.azisaba.net`  
+接続可能バージョン: 1.15.2 ~ 最新版 (サーバーバージョン: 1.15.2)  
 
 ## LIFEサーバーで使用しているコンテンツ
 
