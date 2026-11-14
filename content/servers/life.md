@@ -4,7 +4,7 @@ summary: サバイバル要素や建築、経済システム、PvEを楽しめ�
 status: available
 iconSrc: /images/servers/life.webp
 supportedVersion:
-  - 1.15.2
+  - 1.21.11
   - 最新版
 ---
 
@@ -28,7 +28,7 @@ supportedVersion:
   
 アジ鯖アドレス: `mc.azisaba.net`  
 サーバー直通アドレス: `life.server.azisaba.net`  
-接続可能バージョン: 1.15.2 ~ 最新版 (サーバーバージョン: 1.15.2)  
+接続可能バージョン: 1.21.11 ~ 最新版 (サーバーバージョン: 1.21.11)  
 
 ## LIFEサーバーで使用しているコンテンツ
 
